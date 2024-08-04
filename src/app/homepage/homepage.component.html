@@ -1,1 +1,9 @@
-<p>homepage works!</p>
+<carousel>
+  <slide *ngFor="let slide of slides">
+    <img [src]="slide.src" alt="{{slide.title}}" class="d-block w-100" loading="lazy"/>
+    <div class="carousel-caption d-none d-md-block">
+      <h3>{{slide.title}}</h3>
+      <p>{{slide.subtitle}}</p>
+    </div>
+  </slide>
+</carousel>
