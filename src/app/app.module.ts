@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselModule } from '@coreui/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     CarouselModule,
-    MatCardModule  // Aggiungi CarouselModule agli import
+    MatCardModule ,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()

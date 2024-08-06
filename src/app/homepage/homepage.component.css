@@ -1,0 +1,30 @@
+
+
+.primo-container{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap:10px;
+}
+
+.carousel {
+  max-width: 90%;
+  max-height: 50%;
+  margin: auto;
+}
+
+
+.example-card{
+  height: 250px;
+  width: 250px;
+}
+
+.info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+

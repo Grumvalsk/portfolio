@@ -1,7 +1,5 @@
 .presentazione {
-  height: 70px;
   background-color: rgb(214, 122, 127); /* Usa il colore desiderato */
-  /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2); */
   display: flex;
   flex-direction: column;
   justify-content: center;
