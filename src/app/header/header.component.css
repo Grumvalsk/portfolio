@@ -1,9 +1,16 @@
 .presentazione {
-  background-color: rgb(214, 122, 127); /* Usa il colore desiderato */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.header{
+  padding: 10px;
+  background-color: rgb(214, 122, 127); /* Usa il colore desiderato */
+  display: flex;
+  flex-direction: row;
 }
 
 
