@@ -2,7 +2,9 @@
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{ esperienza.nomeProgetto }}</mat-card-title>
-      <mat-card-subtitle>{{ esperienza.nomeAzienda }}</mat-card-subtitle>
+      <div class="sub-title">
+        <mat-card-subtitle>{{ esperienza.nomeAzienda }}</mat-card-subtitle>
+    </div>
     </mat-card-header>
     <mat-card-content>
       <p>{{ esperienza.dataInizio}} -{{esperienza.dataFine}}</p>

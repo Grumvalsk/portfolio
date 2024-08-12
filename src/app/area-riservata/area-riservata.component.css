@@ -1,3 +1,17 @@
 .esperienze{
   padding: 20px;
 }
+
+mat-card{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+
+mat-card-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+}

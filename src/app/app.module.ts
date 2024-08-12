@@ -12,7 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideHttpClient } from '@angular/common/http';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
-import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-esperienza.component'; // Importa il componente
+import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-esperienza.component';
+import {MatFormFieldModule} from '@angular/material/form-field';// Importa il componente
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-e
     DettaglioEsperienzaComponent, // Dichiara il componente qui
   ],
   imports: [
-    BrowserModule,
+
     AppRoutingModule,
     CarouselModule,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    BrowserModule,
+    MatFormFieldModule
   ],
   providers: [
     provideAnimationsAsync(),
