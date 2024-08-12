@@ -28,8 +28,10 @@ export class AreaRiservataComponent implements OnInit {
     );
   }
 
-  openDialog() {
-    this.dialog.open(DettaglioEsperienzaComponent);
+  openDialog(esperienza: Esperienza): void {
+    this.dialog.open(DettaglioEsperienzaComponent, {
+      data: esperienza // Passa l'oggetto esperienza come dati al dialog
+    });
   }
 
 }
