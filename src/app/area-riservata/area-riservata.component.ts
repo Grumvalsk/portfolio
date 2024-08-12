@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EsperienzeService } from '../services/esperienze.service'; // Assicurati che il percorso sia corretto
+import { Esperienza } from '../model/esperienza';
+import { MatDialog } from '@angular/material/dialog';
+import { DettaglioEsperienzaComponent } from '../dettaglio-esperienza/dettaglio-esperienza.component';
 
 @Component({
   selector: 'app-area-riservata',
-  standalone: true,
-  imports: [],
   templateUrl: './area-riservata.component.html',
-  styleUrl: './area-riservata.component.css'
+  styleUrls: ['./area-riservata.component.css'],
+
 })
-export class AreaRiservataComponent {
+export class AreaRiservataComponent implements OnInit {
+
+  esperienze: Esperienza[] = []; // Utilizza l'interfaccia
+
+  constructor(private esperienzeService: EsperienzeService,public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.esperienzeService.getEsperienze().subscribe(
+      data => {
+        this.esperienze = data;
+        console.log('Esperienze:', this.esperienze);
+      },
+      error => {
+        console.error('Errore durante il recupero delle esperienze:', error);
+      }
+    );
+  }
+
+  openDialog() {
+    this.dialog.open(DettaglioEsperienzaComponent);
+  }
 
 }

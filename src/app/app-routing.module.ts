@@ -4,8 +4,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 
 const routes: Routes = [
-  {path:'home-page',component:HomepageComponent},
-  {path:'area-riservata',component:AreaRiservataComponent},
+  { path: 'home-page', component: HomepageComponent },
+  { path: 'area-riservata', component: AreaRiservataComponent },
   { path: '**', redirectTo: 'home-page' }
 ];
 
@@ -14,3 +14,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
