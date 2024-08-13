@@ -1,4 +1,9 @@
-export interface Tecnologia {
+export class Tecnologia {
   nome: string;
-  versione: string;
+  livello: string;
+
+  constructor() {
+    this.nome = '';
+    this.livello = '';
+  }
 }

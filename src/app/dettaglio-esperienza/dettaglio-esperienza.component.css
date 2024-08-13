@@ -1,0 +1,43 @@
+.dettaglio {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.gruppo {
+  display: flex;
+  flex-direction: row;
+}
+
+.prima-colonna, .seconda-colonna {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.secondo-gruppo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tecnologia {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+mat-dialog-content {
+  max-height: 70vh; /* Limita l'altezza del contenuto a 70% della viewport */
+  overflow-y: auto; /* Abilita lo scroll verticale */
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,38 +1,60 @@
-<!-- <h2 mat-dialog-title>Modifica Esperienza</h2>
+<h2 mat-dialog-title>Modifica Esperienza</h2>
+
 <mat-dialog-content>
-  <h1>{{ data.nomeProgetto }}</h1>
-  <p>{{ data.nomeAzienda }}</p>
-  <p>{{ data.dataInizio }} - {{ data.dataFine }}</p>
-</mat-dialog-content> -->
+  <div class="dettaglio">
+    <div class="info">
+      <h3>Informazioni:</h3>
+    </div>
+    <div class="singolo">
+      <mat-form-field>
+        <mat-label for="nome">Nome Progetto:</mat-label>
+        <input matInput id="nome" type="text" formControlName="nome">
+      </mat-form-field>
+    </div>
+    <div class="gruppo">
+      <div class="prima-colonna">
+        <mat-form-field>
+          <mat-label for="nome">Nome:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="nome">Nome:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+      </div>
+      <div class="seconda-colonna">
+        <mat-form-field>
+          <mat-label for="nome">Nome:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="nome">Nome:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="secondo-gruppo">
+      <div class="tecnologie">
+        <h3>Tecnologie:</h3>
+      </div>
+      <div class="tecnologia" *ngFor="let tecnologia of tecnologie">
+        <mat-form-field>
+          <mat-label for="nome">Nome:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="nome">Versione:</mat-label>
+          <input matInput id="nome" type="text" formControlName="nome">
+        </mat-form-field>
+        <hr>
+      </div>
+      <div class="aggiungi-tec">
+        <button mat-button (click)="aggiungi()">Aggiungi Tecnologia</button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
 
-<mat-form-field>
-  <mat-label for="nome">Nome:</mat-label>
-  <input matInput id="nome" type="text" formControlName="nome">
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
-
-
+<div mat-dialog-actions class="azione">
+  <button mat-button>Modifica</button>
+</div>
