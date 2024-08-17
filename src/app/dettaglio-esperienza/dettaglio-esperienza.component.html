@@ -1,60 +1,65 @@
-<h2 mat-dialog-title>Modifica Esperienza</h2>
+
 
 <mat-dialog-content>
   <div class="dettaglio">
     <div class="info">
       <h3>Informazioni:</h3>
     </div>
-    <div class="singolo">
-      <mat-form-field>
-        <mat-label for="nome">Nome Progetto:</mat-label>
-        <input matInput id="nome" type="text" formControlName="nome">
-      </mat-form-field>
-    </div>
-    <div class="gruppo">
-      <div class="prima-colonna">
-        <mat-form-field>
-          <mat-label for="nome">Nome:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label for="nome">Nome:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
+    <form [formGroup]="inserisciForm" (ngSubmit)="onSubmit()">
+
+      <div class="gruppo">
+        <div class="prima-colonna">
+          <mat-form-field>
+            <mat-label>Nome Azienda:</mat-label>
+            <input matInput formControlName="nomeAzienda">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Data Inizio:</mat-label>
+            <input matInput formControlName="nomeProgetto" type="date">
+          </mat-form-field>
+        </div>
+        <div class="seconda-colonna">
+          <mat-form-field>
+            <mat-label>Data Inizio:</mat-label>
+            <input matInput formControlName="dataInizio" type="date">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Data Fine:</mat-label>
+            <input matInput formControlName="dataFine">
+          </mat-form-field>
+        </div>
       </div>
-      <div class="seconda-colonna">
+      <div class="singolo">
         <mat-form-field>
-          <mat-label for="nome">Nome:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label for="nome">Nome:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
+           <mat-label>Descrizione:</mat-label>
+           <input class="descrizione" matInput formControlName="descrizione">
+         </mat-form-field>
+       </div>
+      <div class="secondo-gruppo">
+        <div class="tecnologie">
+          <h3>Tecnologie:</h3>
+        </div>
+        <!-- Gestione dinamica delle tecnologie -->
+        <div class="tecnologie-container" formArrayName="tecnologie">
+          <div *ngFor="let tecnologia of tecnologieArray.controls; let i = index" [formGroupName]="i">
+            <mat-form-field>
+              <mat-label>Nome:</mat-label>
+              <input matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Versione:</mat-label>
+              <input matInput formControlName="versione">
+            </mat-form-field>
+            <hr>
+          </div>
+        </div>
+        <div class="aggiungi-tec">
+          <button mat-button type="button" (click)="aggiungi()">Aggiungi Tecnologia</button>
+        </div>
       </div>
-    </div>
-    <div class="secondo-gruppo">
-      <div class="tecnologie">
-        <h3>Tecnologie:</h3>
+      <div  class="azione">
+        <button mat-button type="submit">Invio</button>
       </div>
-      <div class="tecnologia" *ngFor="let tecnologia of tecnologie">
-        <mat-form-field>
-          <mat-label for="nome">Nome:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label for="nome">Versione:</mat-label>
-          <input matInput id="nome" type="text" formControlName="nome">
-        </mat-form-field>
-        <hr>
-      </div>
-      <div class="aggiungi-tec">
-        <button mat-button (click)="aggiungi()">Aggiungi Tecnologia</button>
-      </div>
-    </div>
+    </form>
   </div>
 </mat-dialog-content>
-
-<div mat-dialog-actions class="azione">
-  <button mat-button>Modifica</button>
-</div>

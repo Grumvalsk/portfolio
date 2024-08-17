@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Esperienza } from '../model/esperienza';
-import { Tecnologia } from '../model/tecnologia';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-dettaglio-esperienza',
@@ -9,13 +9,47 @@ import { Tecnologia } from '../model/tecnologia';
   styleUrls: ['./dettaglio-esperienza.component.css']
 })
 export class DettaglioEsperienzaComponent {
-  tecnologie: Tecnologia[] = [];
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Esperienza) {
-    this.tecnologie=data.tecnologie;
+  inserisciForm: FormGroup;
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: Esperienza,
+    private fb: FormBuilder
+  ) {
+    this.inserisciForm = this.fb.group({
+      nomeProgetto: [data.nomeProgetto, Validators.required],
+      nomeAzienda: [data.nomeAzienda, Validators.required],
+      dataInizio: [data.dataInizio, Validators.required],
+      dataFine: [data.dataFine, Validators.required],
+      descrizione: [data.descrizione, Validators.required],
+      tecnologie: this.buildTecnologie()
+    });
+  }
+
+  buildTecnologie(): FormArray {
+    return this.fb.array(
+      this.data.tecnologie.map(tecnologia => this.fb.group({
+        nome: [tecnologia.nome, Validators.required],
+        versione: [tecnologia.versione, Validators.required]
+      }))
+    );
+  }
+
+  get tecnologieArray(): FormArray {
+    return this.inserisciForm.get('tecnologie') as FormArray;
   }
 
   aggiungi() {
-    const nuovaTecnologia: Tecnologia = new Tecnologia();  // Crea un nuovo oggetto vuoto di tipo Tecnologia
-    this.tecnologie.push(nuovaTecnologia);  // Aggiungi l'oggetto all'array tecnologie
+    const nuovaTecnologia: FormGroup = this.fb.group({
+      nome: ['', Validators.required],
+      versione: ['', Validators.required]
+    });
+    this.tecnologieArray.push(nuovaTecnologia);
+  }
+
+  onSubmit() {
+    if (this.inserisciForm.valid) {
+      const formValues = this.inserisciForm.value;
+      console.log(formValues);
+    }
   }
 }

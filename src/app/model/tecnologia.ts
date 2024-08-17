@@ -1,9 +1,9 @@
 export class Tecnologia {
   nome: string;
-  livello: string;
+  versione: string;
 
   constructor() {
     this.nome = '';
-    this.livello = '';
+    this.versione = '';
   }
 }

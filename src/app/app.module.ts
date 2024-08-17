@@ -13,7 +13,8 @@ import { AreaRiservataComponent } from './area-riservata/area-riservata.componen
 import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-esperienza.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; // Importa MatInputModule
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +27,15 @@ import { MatInputModule } from '@angular/material/input'; // Importa MatInputMod
   imports: [
     AppRoutingModule,
     MatButtonModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatCardModule,
     BrowserModule,
     MatFormFieldModule,
     MatInputModule, // Aggiungi MatInputModule agli imports
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   bootstrap: [AppComponent],
 })
