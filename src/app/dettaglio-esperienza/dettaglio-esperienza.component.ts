@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Esperienza } from '../model/esperienza';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { EsperienzeService } from '../services/esperienze.service';
 
 @Component({
   selector: 'app-dettaglio-esperienza',
@@ -10,11 +11,14 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 })
 export class DettaglioEsperienzaComponent {
   inserisciForm: FormGroup;
+  esperienza!:Esperienza;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Esperienza,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private esperienzaService:EsperienzeService
   ) {
+    this.esperienza = { id: 0, nomeProgetto: '', nomeAzienda: '', dataInizio: '', dataFine: '', descrizione: '', tecnologie: [] };
     this.inserisciForm = this.fb.group({
       nomeProgetto: [data.nomeProgetto, Validators.required],
       nomeAzienda: [data.nomeAzienda, Validators.required],
@@ -50,6 +54,23 @@ export class DettaglioEsperienzaComponent {
     if (this.inserisciForm.valid) {
       const formValues = this.inserisciForm.value;
       console.log(formValues);
+      this.esperienza.id=this.data.id
+      this.esperienza.nomeProgetto=this.inserisciForm.value.nomeProgetto;
+      this.esperienza.nomeAzienda=this.inserisciForm.value.nomeAzienda;
+      this.esperienza.dataInizio=this.inserisciForm.value.dataInizio;
+      this.esperienza.dataFine=this.inserisciForm.value.dataFine;
+      this.esperienza.descrizione=this.inserisciForm.value.descrizione;
+      this.esperienza.tecnologie=this.inserisciForm.value.tecnologie
+
+      this.esperienzaService.aggiornaEsperienza(this.esperienza).subscribe(
+        data => {
+         console.log("Modifica Effettuata con successo")
+        },
+        error => {
+          console.error('Errore durante la modifica:', error);
+        }
+      );
+
     }
   }
 }

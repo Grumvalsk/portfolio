@@ -2,6 +2,7 @@ import { Tecnologia } from "./tecnologia";
 
 
 export class Esperienza {
+  id: number;
   nomeAzienda: string;
   nomeProgetto: string;
   dataInizio: string;
@@ -10,6 +11,7 @@ export class Esperienza {
   tecnologie: Tecnologia[];
 
   constructor(){
+    this.id=0,
     this.nomeAzienda='',
     this.nomeProgetto='',
     this.dataInizio='',

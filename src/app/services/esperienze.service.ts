@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Esperienza } from '../model/esperienza';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,13 @@ export class EsperienzeService {
 
   getEsperienze(): Observable<any> {
     return this.http.get(`${this.baseUrl}/esperienze`); // Completamento dell'URL
+  }
+
+  inserisciEsperienza(esperienza:Esperienza):Observable<any>{
+    return this.http.post(`${this.baseUrl}/inserisci`,esperienza);
+  }
+
+  aggiornaEsperienza(esperienza:Esperienza):Observable<any>{
+    return this.http.post(`${this.baseUrl}/aggiorna`,esperienza);
   }
 }
