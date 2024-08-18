@@ -9,6 +9,16 @@
 .gruppo {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.oggetto-tecnologia{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap:5px;
+
 }
 
 .singolo{

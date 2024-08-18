@@ -11,6 +11,9 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-button (click)="openDialog(esperienza)">Modifica</button>
+      <button mat-button (click)="cancella(esperienza)" >Cancella</button>
     </mat-card-actions>
   </mat-card>
 </div>
+
+<button mat-fab class="fixed-button" (click)="openDialog()">+</button>

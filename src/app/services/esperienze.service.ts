@@ -23,4 +23,8 @@ export class EsperienzeService {
   aggiornaEsperienza(esperienza:Esperienza):Observable<any>{
     return this.http.post(`${this.baseUrl}/aggiorna`,esperienza);
   }
+
+  cancella(id:number):Observable<any>{
+    return this.http.delete(`${this.baseUrl}/cancella/${id}`)
+  }
 }

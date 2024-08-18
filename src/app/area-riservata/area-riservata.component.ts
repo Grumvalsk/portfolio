@@ -14,7 +14,9 @@ export class AreaRiservataComponent implements OnInit {
 
   esperienze: Esperienza[] = []; // Utilizza l'interfaccia
 
-  constructor(private esperienzeService: EsperienzeService,public dialog: MatDialog) {}
+  constructor(private esperienzeService: EsperienzeService,
+              public dialog: MatDialog,
+              private esperienzaService:EsperienzeService) {}
 
   ngOnInit(): void {
     this.esperienzeService.getEsperienze().subscribe(
@@ -28,10 +30,22 @@ export class AreaRiservataComponent implements OnInit {
     );
   }
 
-  openDialog(esperienza: Esperienza): void {
+  openDialog(esperienza?: Esperienza): void {
     this.dialog.open(DettaglioEsperienzaComponent, {
       data: esperienza // Passa l'oggetto esperienza come dati al dialog
     });
+  }
+
+  cancella(esperienza:Esperienza):void{
+    const id=esperienza.id
+    this.esperienzaService.cancella(id).subscribe(
+      data => {
+        console.log("Cancellazione Avvenuta con successo")
+       },
+       error => {
+         console.error('Errore durante la cancellazione:', error);
+       }
+     );
   }
 
 }
