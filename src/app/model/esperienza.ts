@@ -9,6 +9,8 @@ export class Esperienza {
   dataFine: string;
   descrizione: string;
   tecnologie: Tecnologia[];
+  immagineUrl:string;
+
 
   constructor(){
     this.id=0,
@@ -17,6 +19,7 @@ export class Esperienza {
     this.dataInizio='',
     this.dataFine='',
     this.descrizione='',
-    this.tecnologie=[]
+    this.tecnologie=[],
+    this.immagineUrl=''
   }
 }

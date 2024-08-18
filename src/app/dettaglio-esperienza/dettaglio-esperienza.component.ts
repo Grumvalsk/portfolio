@@ -21,7 +21,7 @@ export class DettaglioEsperienzaComponent {
     private esperienzaService:EsperienzeService
   ) {
 
-    this.esperienza = { id: 0, nomeProgetto: '', nomeAzienda: '', dataInizio: '', dataFine: '', descrizione: '', tecnologie: [] };
+    this.esperienza = { id: 0, nomeProgetto: '', nomeAzienda: '', dataInizio: '', dataFine: '', descrizione: '', tecnologie: [], immagineUrl:'' };
 
 
     if(data===undefined){
@@ -32,6 +32,7 @@ export class DettaglioEsperienzaComponent {
         dataInizio: ['', Validators.required],
         dataFine: ['', Validators.required],
         descrizione: ['', Validators.required],
+        immagineUrl: ['', Validators.required],
         tecnologie: this.buildTecnologie()
       });
    }else{
@@ -41,6 +42,7 @@ export class DettaglioEsperienzaComponent {
         dataInizio: [data.dataInizio, Validators.required],
         dataFine: [data.dataFine, Validators.required],
         descrizione: [data.descrizione, Validators.required],
+        immagineUrl:[data.immagineUrl, Validators.required],
         tecnologie: this.buildTecnologie()
       });
     }
@@ -67,8 +69,8 @@ export class DettaglioEsperienzaComponent {
     this.tecnologieArray.push(nuovaTecnologia);
   }
 
-  rimuovi(indice:number){
-    this.tecnologieArray.removeAt(indice);
+  rimuovi(id:number){
+    this.tecnologieArray.removeAt(id);
   }
 
   aggiorna() {
@@ -81,7 +83,8 @@ export class DettaglioEsperienzaComponent {
       this.esperienza.dataInizio=this.inserisciForm.value.dataInizio;
       this.esperienza.dataFine=this.inserisciForm.value.dataFine;
       this.esperienza.descrizione=this.inserisciForm.value.descrizione;
-      this.esperienza.tecnologie=this.inserisciForm.value.tecnologie
+      this.esperienza.immagineUrl=this.inserisciForm.value.immagineUrl;
+      this.esperienza.tecnologie=this.inserisciForm.value.tecnologie;
 
       this.esperienzaService.aggiornaEsperienza(this.esperienza).subscribe(
         data => {

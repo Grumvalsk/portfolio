@@ -1,151 +1,31 @@
-<br>
+
+<div class="presentazione" id="presentazione">
+  <h3>Benvenuti!</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam ipsum nemo? Accusantium molestiae earum sed illo quas debitis omnis ut fuga, exercitationem velit ad ipsam magni officia ratione minima.
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia explicabo magnam sapiente perspiciatis at ad voluptas cumque voluptatibus vitae autem perferendis saepe unde, asperiores doloremque labore accusantium. Consequuntur, nisi culpa.
+  </p>
+</div>
 <div class="esperienze">
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="primo-container">
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <!-- Ciclo sui gruppi di esperienze -->
+      <div *ngFor="let gruppo of groupedEsperienze; let i = index" class="carousel-item" [class.active]="i === 0">
+        <div class="primo-container d-flex">
+          <!-- Ciclo sulle esperienze all'interno di ogni gruppo -->
+          <mat-card class="example-card mx-2" *ngFor="let esperienza of gruppo" appearance="outlined">
+            <img mat-card-image src={{esperienza.immagineUrl}} alt="Photo of a Shiba Inu">
             <div class="info">
               <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 111
-              </p>
-            </mat-card-content>
+                <mat-card-content>
+                  <h4>{{ esperienza.nomeProgetto }}</h4>
+                  <p>{{ esperienza.nomeAzienda }}</p>
+                  <p>{{ esperienza.dataInizio }} - {{ esperienza.dataFine }}</p>
+                </mat-card-content>
+              </div>
+              <div class="azione">
+                <button mat-button (click)="dettaglioEsperienza(esperienza)">Info</button>
+              </div>
             </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
-          </mat-card>
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 111
-              </p>
-            </mat-card-content>
-            </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
-          </mat-card>
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 111
-              </p>
-            </mat-card-content>
-            </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
-          </mat-card>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="primo-container">
-        <mat-card class="example-card" appearance="outlined">
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <div class="info">
-            <div class="contenuto">
-          <mat-card-content>
-            <p>
-            CArta 222
-            </p>
-          </mat-card-content>
-          </div>
-          <div class="azione">
-            <button mat-button>+</button>
-          </div>
-        </div>
-        </mat-card>
-        <mat-card class="example-card" appearance="outlined">
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <div class="info">
-            <div class="contenuto">
-          <mat-card-content>
-            <p>
-            CArta 111
-            </p>
-          </mat-card-content>
-          </div>
-          <div class="azione">
-            <button mat-button>+</button>
-          </div>
-        </div>
-        </mat-card>
-        <mat-card class="example-card" appearance="outlined">
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <div class="info">
-            <div class="contenuto">
-          <mat-card-content>
-            <p>
-            CArta 111
-            </p>
-          </mat-card-content>
-          </div>
-          <div class="azione">
-            <button mat-button>+</button>
-          </div>
-        </div>
-        </mat-card>
-      </div>
-      </div>
-      <div class="carousel-item">
-        <div class="primo-container">
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 3333
-              </p>
-            </mat-card-content>
-            </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
-          </mat-card>
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 111
-              </p>
-            </mat-card-content>
-            </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
-          </mat-card>
-          <mat-card class="example-card" appearance="outlined">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-            <mat-card-content>
-              <p>
-              CArta 111
-              </p>
-            </mat-card-content>
-            </div>
-            <div class="azione">
-              <button mat-button>+</button>
-            </div>
-          </div>
           </mat-card>
         </div>
       </div>
@@ -160,11 +40,5 @@
     </button>
   </div>
 </div>
-<br>
-<div class="presentazione">
 
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eveniet laborum nihil ipsa mollitia consectetur expedita pariatur consequuntur, excepturi tempora ullam, officia, vero nesciunt quod velit animi perferendis deleniti temporibus?
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, soluta consectetur nam quidem voluptates molestias consequuntur. Architecto sunt, deleniti numquam voluptate, eos dicta eveniet reiciendis autem obcaecati ullam dolorem expedita.
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non vero tenetur reprehenderit expedita dolorum, omnis veniam? Fugit, fugiat. Fugiat ex cumque sunt nisi quo architecto sint facere dignissimos at dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ratione pariatur nobis quae. Obcaecati laborum nostrum odit incidunt deserunt veritatis deleniti ullam dolor, accusantium voluptas. Quidem obcaecati labore soluta qui?
-  </p>
-</div>
+
