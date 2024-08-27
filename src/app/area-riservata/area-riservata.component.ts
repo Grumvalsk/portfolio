@@ -10,41 +10,41 @@ import { DettaglioEsperienzaComponent } from '../dettaglio-esperienza/dettaglio-
   styleUrls: ['./area-riservata.component.css'],
 
 })
-export class AreaRiservataComponent implements OnInit {
+export class AreaRiservataComponent  {
+  selectedIndex = 0; // Indice iniziale (0 per la prima scheda)
+  // esperienze: Esperienza[] = []; // Utilizza l'interfaccia
 
-  esperienze: Esperienza[] = []; // Utilizza l'interfaccia
+  // constructor(private esperienzeService: EsperienzeService,
+  //             public dialog: MatDialog) {}
 
-  constructor(private esperienzeService: EsperienzeService,
-              public dialog: MatDialog) {}
+  // ngOnInit(): void {
+  //   this.esperienzeService.getEsperienze().subscribe(
+  //     data => {
+  //       this.esperienze = data;
+  //       console.log('Esperienze:', this.esperienze);
+  //     },
+  //     error => {
+  //       console.error('Errore durante il recupero delle esperienze:', error);
+  //     }
+  //   );
+  // }
 
-  ngOnInit(): void {
-    this.esperienzeService.getEsperienze().subscribe(
-      data => {
-        this.esperienze = data;
-        console.log('Esperienze:', this.esperienze);
-      },
-      error => {
-        console.error('Errore durante il recupero delle esperienze:', error);
-      }
-    );
-  }
+  // openDialog(esperienza?: Esperienza): void {
+  //   this.dialog.open(DettaglioEsperienzaComponent, {
+  //     data: esperienza // Passa l'oggetto esperienza come dati al dialog
+  //   });
+  // }
 
-  openDialog(esperienza?: Esperienza): void {
-    this.dialog.open(DettaglioEsperienzaComponent, {
-      data: esperienza // Passa l'oggetto esperienza come dati al dialog
-    });
-  }
-
-  cancella(esperienza:Esperienza):void{
-    const id=esperienza.id
-    this.esperienzeService.cancella(id).subscribe(
-      data => {
-        console.log("Cancellazione Avvenuta con successo")
-       },
-       error => {
-         console.error('Errore durante la cancellazione:', error);
-       }
-     );
-  }
+  // cancella(esperienza:Esperienza):void{
+  //   const id=esperienza.id
+  //   this.esperienzeService.cancella(id).subscribe(
+  //     data => {
+  //       console.log("Cancellazione Avvenuta con successo")
+  //      },
+  //      error => {
+  //        console.error('Errore durante la cancellazione:', error);
+  //      }
+  //    );
+  // }
 
 }

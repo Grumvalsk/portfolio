@@ -15,6 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; // Importa MatInputModule
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AreaRiservataEsperienzeComponent } from './area-riservata-esperienze/area-riservata-esperienze.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AreaRiservataInformazioniComponent } from './area-riservata-informazioni/area-riservata-informazioni.component';
+import { DettaglioInformazioneComponent } from './dettaglio-informazione/dettaglio-informazione.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     AreaRiservataComponent,
     DettaglioEsperienzaComponent,
+    AreaRiservataEsperienzeComponent,
+    AreaRiservataInformazioniComponent,
+    DettaglioInformazioneComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -36,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule, // Aggiungi MatInputModule agli imports
     HttpClientModule,
     FormsModule,
+    MatTabsModule
   ],
   bootstrap: [AppComponent],
 })

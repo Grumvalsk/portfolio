@@ -1,0 +1,13 @@
+.contenuto{
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+mat-card{
+
+  width: 400px;
+  height: 400px;
+}
