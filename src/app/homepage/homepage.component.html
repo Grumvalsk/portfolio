@@ -1,44 +1,95 @@
 
-<div class="presentazione" id="presentazione">
-  <h3>Benvenuti!</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam ipsum nemo? Accusantium molestiae earum sed illo quas debitis omnis ut fuga, exercitationem velit ad ipsam magni officia ratione minima.
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia explicabo magnam sapiente perspiciatis at ad voluptas cumque voluptatibus vitae autem perferendis saepe unde, asperiores doloremque labore accusantium. Consequuntur, nisi culpa.
-  </p>
+<div class="slider">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+		</div>
+	</div>
 </div>
-<div class="esperienze">
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <!-- Ciclo sui gruppi di esperienze -->
-      <div *ngFor="let gruppo of groupedEsperienze; let i = index" class="carousel-item" [class.active]="i === 0">
-        <div class="primo-container d-flex">
-          <!-- Ciclo sulle esperienze all'interno di ogni gruppo -->
-          <mat-card class="example-card mx-2" *ngFor="let esperienza of gruppo" appearance="outlined">
-            <img mat-card-image src={{esperienza.immagineUrl}} alt="Photo of a Shiba Inu">
-            <div class="info">
-              <div class="contenuto">
-                <mat-card-content>
-                  <h4>{{ esperienza.nomeProgetto }}</h4>
-                  <p>{{ esperienza.nomeAzienda }}</p>
-                  <p>{{ esperienza.dataInizio }} - {{ esperienza.dataFine }}</p>
-                </mat-card-content>
-              </div>
-              <div class="azione">
-                <button mat-button (click)="dettaglioEsperienza(esperienza)">Info</button>
-              </div>
-            </div>
-          </mat-card>
-        </div>
+
+<div class="introduzione" >
+  <div class="intro">
+    <h3>Benvenuti!</h3>
+    <p>{{informazioni.introduzione}} </p>
+  </div>
+  <div class="immagine">
+    <img src={{informazioni.immagineIntroduzione}} alt="">
+  </div>
+
+</div>
+<div class="about-me">
+  <div class="descrizione">
+    <h3>Chi sono?</h3>
+    <p>{{informazioni.presentazione}}</p>
+  </div>
+  <div class="immagine">
+    <img class="immagine-presentazione" src={{informazioni.immaginePresentazione}} alt="">
+  </div>
+</div>
+
+<div class="carousel-container">
+  <div *ngFor="let item of esperienze; let i = index">
+    <input
+      type="radio"
+      [name]="'position'"
+      [checked]="currentIndex === i"
+      (click)="updateCurrentIndex(i)"
+    />
+  </div>
+
+  <main id="carousel">
+    <div
+      *ngFor="let esperienza of esperienze; let i = index"
+      class="item"
+      [style.--offset]="i + 1"
+    >
+      <div class="experience-content">
+        <h3>{{ esperienza.nomeAzienda }}</h3>
+        <p>{{ esperienza.descrizione }}</p>
+        <img src={{esperienza.immagineUrl}} alt="">
+        <button mat-button>Modifica</button>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  </main>
 </div>
 
 

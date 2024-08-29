@@ -19,6 +19,8 @@ import { AreaRiservataEsperienzeComponent } from './area-riservata-esperienze/ar
 import {MatTabsModule} from '@angular/material/tabs';
 import { AreaRiservataInformazioniComponent } from './area-riservata-informazioni/area-riservata-informazioni.component';
 import { DettaglioInformazioneComponent } from './dettaglio-informazione/dettaglio-informazione.component';
+import { TruncatePipe } from './truncate.pipe';
+import { DynamicZoomDirective } from './dynamic-zoom.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,8 @@ import { DettaglioInformazioneComponent } from './dettaglio-informazione/dettagl
     AreaRiservataEsperienzeComponent,
     AreaRiservataInformazioniComponent,
     DettaglioInformazioneComponent,
+    TruncatePipe,
+    DynamicZoomDirective,
   ],
   imports: [
     AppRoutingModule,

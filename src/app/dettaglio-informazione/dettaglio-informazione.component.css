@@ -1,0 +1,13 @@
+.dettaglio{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gruppo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+}

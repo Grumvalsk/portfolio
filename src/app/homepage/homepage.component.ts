@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EsperienzeService } from '../services/esperienze.service';
 import { Esperienza } from '../model/esperienza';
+import { Informazioni } from '../model/informazioni';
+import { InformazioniService } from '../services/informazioni.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,25 +10,36 @@ import { Esperienza } from '../model/esperienza';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  informazioni: Informazioni = new Informazioni();
   esperienze: Esperienza[] = [];
-  groupedEsperienze: Esperienza[][] = []; // Raggruppiamo le esperienze in gruppi di tre
+  groupedEsperienze: Esperienza[][] = [];
+  currentIndex: number = 0;
 
-  constructor(private service: EsperienzeService) {}
+  constructor(private service: EsperienzeService, private informazioniService: InformazioniService) {}
 
   ngOnInit(): void {
     this.service.getEsperienze().subscribe(
       data => {
         this.esperienze = data;
-        this.groupedEsperienze = this.groupByThree(this.esperienze); // Raggruppa le esperienze in array di tre
+        this.groupedEsperienze = this.groupByThree(this.esperienze);
+        this.updateCarousel(); // Aggiorniamo la posizione del carosello all'inizio
         console.log('Esperienze raggruppate:', this.groupedEsperienze);
       },
       error => {
         console.error('Errore durante il recupero delle esperienze:', error);
       }
     );
+
+    this.informazioniService.getInformazioni().subscribe(
+      data => {
+        this.informazioni = data;
+      },
+      error => {
+        console.error('Errore durante il recupero delle informazioni:', error);
+      }
+    );
   }
 
-  // Metodo per suddividere l'array in gruppi di tre
   groupByThree(array: Esperienza[]): Esperienza[][] {
     const groupedArray = [];
     for (let i = 0; i < array.length; i += 3) {
@@ -36,7 +49,18 @@ export class HomepageComponent implements OnInit {
   }
 
   dettaglioEsperienza(esperienza: Esperienza): void {
-    // Logica per aprire un dialog o navigare ai dettagli dell'esperienza
     console.log('Esperienza selezionata:', esperienza);
+  }
+
+  updateCurrentIndex(index: number): void {
+    this.currentIndex = index;
+    this.updateCarousel();
+  }
+
+  updateCarousel(): void {
+    const carouselElement = document.querySelector('main#carousel') as HTMLElement;
+    if (carouselElement) {
+      carouselElement.style.setProperty('--position', (this.currentIndex + 1).toString());
+    }
   }
 }

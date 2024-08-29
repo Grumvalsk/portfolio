@@ -6,8 +6,24 @@
   gap: 10px;
 }
 
-mat-card{
+.titolo{
+  display: flex;
+  justify-content: center;
+}
 
+mat-card{
   width: 400px;
   height: 400px;
+  display: flex;
+  justify-content: center;
+  gap:10px
+}
+.mat-mdc-card-header{
+  display: flex;
+}
+
+.mat-mdc-card-content {
+  display: flex;
+  justify-content: center;
+
 }

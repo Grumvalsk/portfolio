@@ -1,11 +1,13 @@
 export class Informazioni {
   introduzione: string;
   presentazione: string;
-  immagine:string
+  immaginePresentazione:string;
+  immagineIntroduzione:string;
 
   constructor() {
     this.introduzione = '';
     this.presentazione = '';
-    this.immagine='';
+    this.immaginePresentazione='';
+   this.immagineIntroduzione='';
   }
 }

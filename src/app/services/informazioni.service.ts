@@ -15,7 +15,7 @@ export class InformazioniService {
     return this.http.get(`${this.baseUrl}/recupera`);
   }
 
-  inserisciEsperienza(informazione:Informazioni):Observable<any>{
+  inserisciInformazione(informazione:Informazioni):Observable<any>{
     return this.http.post(`${this.baseUrl}/inserisci`,informazione);
   }
 
