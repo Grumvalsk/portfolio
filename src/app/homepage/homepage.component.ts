@@ -3,6 +3,8 @@ import { EsperienzeService } from '../services/esperienze.service';
 import { Esperienza } from '../model/esperienza';
 import { Informazioni } from '../model/informazioni';
 import { InformazioniService } from '../services/informazioni.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DescrizioneEsperienzaComponent } from '../descrizione-esperienza/descrizione-esperienza.component';
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +17,7 @@ export class HomepageComponent implements OnInit {
   groupedEsperienze: Esperienza[][] = [];
   currentIndex: number = 0;
 
-  constructor(private service: EsperienzeService, private informazioniService: InformazioniService) {}
+  constructor(private service: EsperienzeService, private informazioniService: InformazioniService,public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.service.getEsperienze().subscribe(
@@ -65,6 +67,8 @@ export class HomepageComponent implements OnInit {
   }
 
   getMoreInfo(esperienza:Esperienza){
-
+  this.dialog.open(DescrizioneEsperienzaComponent,{
+    data:esperienza
+  })
   }
 }

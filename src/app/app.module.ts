@@ -22,6 +22,7 @@ import { DettaglioInformazioneComponent } from './dettaglio-informazione/dettagl
 import { TruncatePipe } from './truncate.pipe';
 import { DynamicZoomDirective } from './dynamic-zoom.directive';
 import { LoginComponent } from './login/login.component';
+import { DescrizioneEsperienzaComponent } from './descrizione-esperienza/descrizione-esperienza.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { LoginComponent } from './login/login.component';
     TruncatePipe,
     DynamicZoomDirective,
     LoginComponent,
+    DescrizioneEsperienzaComponent,
   ],
   imports: [
     AppRoutingModule,

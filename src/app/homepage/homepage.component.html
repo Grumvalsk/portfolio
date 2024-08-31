@@ -91,7 +91,7 @@
           <h3>{{ esperienza.nomeAzienda }}</h3>
           <p>{{ esperienza.descrizione }}</p>
           <img src={{esperienza.immagineUrl}} alt="">
-          <button mat-button>Info</button>
+          <button mat-button (click)="getMoreInfo(esperienza)">Info</button>
         </div>
       </div>
     </main>
