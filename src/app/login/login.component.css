@@ -1,0 +1,13 @@
+.login{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accesso{
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -63,4 +63,8 @@ export class HomepageComponent implements OnInit {
       carouselElement.style.setProperty('--position', (this.currentIndex + 1).toString());
     }
   }
+
+  getMoreInfo(esperienza:Esperienza){
+
+  }
 }

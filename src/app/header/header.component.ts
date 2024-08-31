@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,17 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
 
-  constructor(private rotte:Router){
+  constructor(private rotte:Router, public dialog: MatDialog){
 
   }
 
-  areaRiservata(){
-   this.rotte.navigate(['/area-riservata'])
+  areaRiservata() {
+    // Naviga verso il percorso '/login'
+    this.rotte.navigate(['/login']).then(() => {
+      // Dopo aver cambiato il percorso, apri la dialog di login
+      this.dialog.open(LoginComponent, {
+        // Configurazioni opzionali per la dialog
+      });
+    });
   }
 }
