@@ -17,11 +17,11 @@ export class EsperienzeService {
   }
 
   inserisciEsperienza(esperienza:Esperienza):Observable<any>{
-    return this.http.post(`${this.baseUrl}/inserisci`,esperienza);
+    return this.http.post(`${this.baseUrl}/inserisci`,esperienza,{ withCredentials: true});
   }
 
   aggiornaEsperienza(esperienza:Esperienza):Observable<any>{
-    return this.http.post(`${this.baseUrl}/aggiorna`,esperienza);
+    return this.http.post(`${this.baseUrl}/aggiorna`,esperienza,{ withCredentials: true,responseType: 'text'});
   }
 
   cancella(id:number):Observable<any>{

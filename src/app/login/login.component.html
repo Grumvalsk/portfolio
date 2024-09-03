@@ -1,22 +1,24 @@
-<mat-dialog-content >
+
   <div class="login">
-    <div class="info">
-      <h3>LOGIN</h3>
-    </div>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <div class="accesso" >
-          <mat-form-field>
-            <mat-label>Email:</mat-label>
-            <input matInput formControlName="email" type="email">
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>password</mat-label>
-            <input matInput formControlName="password" type="password">
-          </mat-form-field>
-      <div class="azione">
-        <button mat-button type="submit">Entra</button>
+    <h3> Tu Non Puoi Passare!...o forse si... dipende dalle tue capacità di hacking  </h3>
+    <div class="schermata">
+      <div class="info">
+        <h3>LOGIN</h3>
       </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="accesso" >
+            <mat-form-field>
+              <mat-label>Email:</mat-label>
+              <input matInput formControlName="email" type="email">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>password</mat-label>
+              <input matInput formControlName="password" type="password">
+            </mat-form-field>
+        <div class="azione">
+          <button mat-button type="submit">Entra</button>
+        </div>
+      </div>
+    </form>
     </div>
-   </form>
   </div>
-</mat-dialog-content>

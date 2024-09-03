@@ -4,6 +4,7 @@ import { User } from 'portfolio/src/model/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   user:User = new User();
   constructor(private userService:UserService,
     private form:FormBuilder,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private rotte: Router
   ){
      this.loginForm=form.group({
       email:['',Validators.required],
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
 
         if (response.status === 200) {
+          this.rotte.navigate(['/area-riservata'])
           // Aspetta un momento per essere sicuro che il cookie sia stato impostato
           setTimeout(() => {
             this.sessionId = this.cookieService.get('JSESSIONID');

@@ -1,0 +1,24 @@
+.scheda{
+  padding: 10px;
+  width: 500px;
+  height:500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenuto{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}

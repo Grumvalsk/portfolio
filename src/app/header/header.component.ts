@@ -17,11 +17,7 @@ export class HeaderComponent {
 
   areaRiservata() {
     // Naviga verso il percorso '/login'
-    this.rotte.navigate(['/login']).then(() => {
-      // Dopo aver cambiato il percorso, apri la dialog di login
-      this.dialog.open(LoginComponent, {
-        // Configurazioni opzionali per la dialog
-      });
-    });
+    this.rotte.navigate(['/login']);
+    };
   }
-}
+

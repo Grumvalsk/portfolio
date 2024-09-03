@@ -16,7 +16,7 @@ export class InformazioniService {
   }
 
   inserisciInformazione(informazione:Informazioni):Observable<any>{
-    return this.http.post(`${this.baseUrl}/inserisci`,informazione);
+    return this.http.post(`${this.baseUrl}/inserisci`,informazione,{ withCredentials: true,responseType: 'text'});
   }
 
 }

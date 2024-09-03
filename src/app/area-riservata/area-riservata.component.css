@@ -16,6 +16,15 @@ mat-card-header{
   gap:10px;
 }
 
+::ng-deep .mat-mdc-tab-group .mat-mdc-tab-label-active {
+  color: brown !important; /* Cambia il colore del testo della scheda attiva */
+}
+
+::ng-deep .mat-mdc-tab-group .mat-mdc-ink-bar {
+  background-color: brown !important; /* Cambia il colore della barra sotto la scheda attiva */
+}
+
+
 .fixed-button {
   height: 130px;
   width: 130px;

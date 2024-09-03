@@ -1,12 +1,28 @@
 .login{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.schermata{
+  border-radius: 5px;
+  background-color: rgb(201, 195, 195);
+  width: 400px;
+  height: 300px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .accesso{
-  padding:10px;
+
+  width: 400px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

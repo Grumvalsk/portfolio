@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: 'home-page', component: HomepageComponent },
   { path: 'area-riservata', component: AreaRiservataComponent },
   { path: 'login', component:LoginComponent},
-  { path: 'area-riservata-esperienze',component:AreaRiservataEsperienzeComponent},
-  { path: 'area-riservata-informazioni', component:AreaRiservataInformazioniComponent},
+  // { path: 'area-riservata-esperienze',component:AreaRiservataEsperienzeComponent},
+  // { path: 'area-riservata-informazioni', component:AreaRiservataInformazioniComponent},
   { path: '**', redirectTo: 'home-page' }
 ];
 

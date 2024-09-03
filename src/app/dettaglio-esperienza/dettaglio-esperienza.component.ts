@@ -1,9 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Esperienza } from '../model/esperienza';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { EsperienzeService } from '../services/esperienze.service';
 import { Tecnologia } from '../model/tecnologia';
+import { Router } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dettaglio-esperienza',
@@ -18,7 +20,8 @@ export class DettaglioEsperienzaComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Esperienza,
     private fb: FormBuilder,
-    private esperienzaService:EsperienzeService
+    private esperienzaService:EsperienzeService,
+    private dialogRef: MatDialogRef<DettaglioEsperienzaComponent>
   ) {
 
     this.esperienza = { id: 0, nomeProgetto: '', nomeAzienda: '', dataInizio: '', dataFine: '', descrizione: '', tecnologie: [], immagineUrl:'' };
@@ -87,11 +90,13 @@ export class DettaglioEsperienzaComponent {
       this.esperienza.tecnologie=this.inserisciForm.value.tecnologie;
 
       this.esperienzaService.aggiornaEsperienza(this.esperienza).subscribe(
-        data => {
-         console.log("Modifica Effettuata con successo")
+        (response: HttpResponse<any>) => {
+          debugger
+          console.log(response);
+            this.dialogRef.close();
         },
-        error => {
-          console.error('Errore durante la modifica:', error);
+        (error: any) => {
+          console.error(error.error);
         }
       );
 
@@ -101,7 +106,6 @@ export class DettaglioEsperienzaComponent {
   inserisci() {
     if (this.inserisciForm.valid) {
       const formValues = this.inserisciForm.value;
-      console.log(formValues);
       this.esperienza.nomeProgetto=this.inserisciForm.value.nomeProgetto;
       this.esperienza.nomeAzienda=this.inserisciForm.value.nomeAzienda;
       this.esperienza.dataInizio=this.inserisciForm.value.dataInizio;
@@ -110,11 +114,13 @@ export class DettaglioEsperienzaComponent {
       this.esperienza.tecnologie=this.inserisciForm.value.tecnologie
 
       this.esperienzaService.inserisciEsperienza(this.esperienza).subscribe(
-        data => {
-         console.log("Inserimento Effettuato con successo")
+        (response: HttpResponse<any>) => {
+          if (response.status === 201) {
+            this.dialogRef.close();
+          }
         },
-        error => {
-          console.error('Errore durante l inserimento:', error);
+        (error: any) => {
+          console.log(error.error);
         }
       );
 

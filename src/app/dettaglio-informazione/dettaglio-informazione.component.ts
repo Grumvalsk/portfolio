@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { Informazioni } from '../model/informazioni';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DettaglioInformazione } from '../model/dettaglio-informazione';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InformazioniService } from '../services/informazioni.service';
@@ -17,7 +17,8 @@ export class DettaglioInformazioneComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DettaglioInformazione,
     private fb: FormBuilder,
-    private informazioniService:InformazioniService
+    private informazioniService:InformazioniService,
+    private dialogRef: MatDialogRef<DettaglioInformazione>
   ){
      console.log(data);
      if(data===undefined){
@@ -47,6 +48,7 @@ export class DettaglioInformazioneComponent {
       this.informazioniService.inserisciInformazione(this.informazione).subscribe(
         data => {
          console.log("Inserimento Effettuato con successo")
+         this.dialogRef.close();
         },
         error => {
           console.error('Errore durante l inserimento:', error);
