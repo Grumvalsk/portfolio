@@ -27,16 +27,19 @@
           </mat-form-field>
         </div>
       </div>
+
       <div class="singolo">
         <mat-form-field class="example-full-width">
           <mat-label>Descrizione:</mat-label>
           <textarea matInput formControlName="descrizione"></textarea>
         </mat-form-field>
-        <mat-form-field>
-          <mat-label>Immagine:</mat-label>
-          <input matInput formControlName="immagineUrl" type="text">
-        </mat-form-field>
+        <!-- Input per il caricamento dell'immagine -->
+        <div class="input-immagine">
+          <label for="imageUpload">Carica immagine (JPG, PNG):</label>
+          <input type="file" (change)="onFileChange($event)" accept="image/jpeg, image/png" id="imageUpload">
+        </div>
       </div>
+
       <div class="secondo-gruppo">
         <div class="tecnologie">
           <h3>Tecnologie:</h3>
@@ -62,16 +65,12 @@
         </div>
       </div>
 
-
       <div class="azione">
         <button mat-button type="submit">Modifica</button>
       </div>
     </form>
   </div>
 </mat-dialog-content>
-
-
-
 
 <mat-dialog-content *ngIf="inseriemnto">
   <div class="dettaglio">
@@ -102,16 +101,20 @@
           </mat-form-field>
         </div>
       </div>
+
       <div class="singolo">
         <mat-form-field>
-           <mat-label>Descrizione:</mat-label>
-           <input class="descrizione" matInput formControlName="descrizione">
-         </mat-form-field>
-         <mat-form-field>
-          <mat-label>Immagine:</mat-label>
-          <input matInput formControlName="immagineUrl" type="text">
+          <mat-label>Descrizione:</mat-label>
+          <input class="descrizione" matInput formControlName="descrizione">
         </mat-form-field>
-       </div>
+
+        <!-- Input per il caricamento dell'immagine -->
+        <div class="input-immagine">
+          <label for="imageUpload">Carica immagine (JPG, PNG):</label>
+          <input type="file" (change)="onFileChange($event)" accept="image/jpeg, image/png" id="imageUpload">
+        </div>
+      </div>
+
       <div class="secondo-gruppo">
         <div class="tecnologie">
           <h3>Tecnologie:</h3>
@@ -136,12 +139,11 @@
         <div class="aggiungi-tec">
           <button mat-button type="button" (click)="aggiungi()">Aggiungi Tecnologia</button>
         </div>
-
       </div>
-      <div  class="azione">
+
+      <div class="azione">
         <button mat-button type="submit">Invia</button>
       </div>
     </form>
   </div>
 </mat-dialog-content>
-

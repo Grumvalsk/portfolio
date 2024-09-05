@@ -12,7 +12,6 @@ export class AuthActivateRouteGuard {
     }
 
     canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot){
-      debugger
         if(sessionStorage.getItem('userdetails')){
             this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
             if(this.user.email.length===0){

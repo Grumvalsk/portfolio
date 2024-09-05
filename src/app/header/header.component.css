@@ -1,6 +1,6 @@
 .sezioni{
   color: white;
-  padding-top: 100px;
+  padding-top: 135px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,6 +26,7 @@
 .indici a{
   color: brown;
   font-size: medium;
+  text-decoration: none; /* Rimuove la sottolineatura */
 }
 .header{
   height: 200px;
