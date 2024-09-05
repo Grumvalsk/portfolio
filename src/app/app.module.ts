@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-esperienza.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,6 +23,7 @@ import { TruncatePipe } from './truncate.pipe';
 import { DynamicZoomDirective } from './dynamic-zoom.directive';
 import { LoginComponent } from './login/login.component';
 import { DescrizioneEsperienzaComponent } from './descrizione-esperienza/descrizione-esperienza.component';
+import { CsrfInterceptor } from './interceptor/csrf.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,13 @@ import { DescrizioneEsperienzaComponent } from './descrizione-esperienza/descriz
     HttpClientModule,
     FormsModule,
     MatTabsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CsrfInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
 })

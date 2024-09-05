@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { getCookie } from 'typescript-cookie';
 
 @Component({
   selector: 'app-login',
@@ -36,47 +37,23 @@ export class LoginComponent implements OnInit {
     this.user.password = this.loginForm.value.password;
 
     this.userService.login(this.user).subscribe(
-      (response: HttpResponse<any>) => {
-        console.log(response);
+      (responseData) => {
+        console.log('Login successful', responseData);
+        this.user = responseData;
+        this.user.authStatus = 'AUTH';
+        window.sessionStorage.setItem("userdetails", JSON.stringify(this.user));
 
-        if (response.status === 200) {
-          this.rotte.navigate(['/area-riservata'])
-          // Aspetta un momento per essere sicuro che il cookie sia stato impostato
-          setTimeout(() => {
-            this.sessionId = this.cookieService.get('JSESSIONID');
-            console.log('Session ID:', this.sessionId);
-          }, 100);
-        }
+        // Assicurati che xsrf non sia undefined
+        const xsrf = getCookie("XSRF-TOKEN") || ''; // Imposta un valore di fallback
+        window.sessionStorage.setItem("XSRF-TOKEN", xsrf);
+
+        this.rotte.navigate(['area-riservata']);
       },
-      (error: any) => {
-        console.log(error.error);
+      (error) => {
+        console.error('Login error', error);
       }
     );
   }
-//   onSubmit() {
-//     this.persona.email = this.loginForm.get('email')?.value || null;
-//     this.persona.password = this.loginForm.get('password')?.value || null;
-
-//     this.service.login(this.persona).subscribe(
-//       (response: HttpResponse<any>) => {
-//         if (response.status === 200) {
-//           const headers = response.headers;
-//           this.jwt = headers.get('Authorization');
-//           this.service.setJwt(this.jwt);
-//           sessionStorage.setItem('jwt', this.jwt);
-
-
-
-//           // Naviga verso la homepage
-//           this.router.navigate(['/home-page']);
-//         }
-//       },
-//       (error: any) => {
-//         this.errorMessage = error;
-//         console.log(error.error);
-//       }
-//     );
-//   }
-// }
 
 }
+

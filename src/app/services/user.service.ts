@@ -13,11 +13,12 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   login(user: User): Observable<any> {
-    // Includi { withCredentials: true } per assicurarti che i cookie vengano inviati e ricevuti
-    return this.http.post(`${this.baseUrl}/login`, user, {
-      observe: 'response',
-      responseType: 'text',
-      withCredentials: true  // Aggiungi questa linea
+    window.sessionStorage.setItem("userdetails", JSON.stringify(user));
+    const headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     });
+    return this.http.get(`${this.baseUrl}/login`, { headers, withCredentials: true,responseType: 'json' });
   }
+
 }
