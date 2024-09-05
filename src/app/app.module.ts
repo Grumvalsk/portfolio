@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { DettaglioEsperienzaComponent } from './dettaglio-esperienza/dettaglio-esperienza.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input'; // Importa MatInputMod
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AreaRiservataEsperienzeComponent } from './area-riservata-esperienze/area-riservata-esperienze.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { AreaRiservataInformazioniComponent } from './area-riservata-informazioni/area-riservata-informazioni.component';
 import { DettaglioInformazioneComponent } from './dettaglio-informazione/dettaglio-informazione.component';
 import { TruncatePipe } from './truncate.pipe';
@@ -24,6 +24,8 @@ import { DynamicZoomDirective } from './dynamic-zoom.directive';
 import { LoginComponent } from './login/login.component';
 import { DescrizioneEsperienzaComponent } from './descrizione-esperienza/descrizione-esperienza.component';
 import { CsrfInterceptor } from './interceptor/csrf.interceptor';
+import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,15 +43,15 @@ import { CsrfInterceptor } from './interceptor/csrf.interceptor';
     DescrizioneEsperienzaComponent,
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     MatButtonModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDialogModule,
     MatCardModule,
-    BrowserModule,
     MatFormFieldModule,
-    MatInputModule, // Aggiungi MatInputModule agli imports
+    MatInputModule,
     HttpClientModule,
     FormsModule,
     MatTabsModule
@@ -59,7 +61,7 @@ import { CsrfInterceptor } from './interceptor/csrf.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: CsrfInterceptor,
       multi: true
-    }
+    },AuthActivateRouteGuard
   ],
   bootstrap: [AppComponent],
 })

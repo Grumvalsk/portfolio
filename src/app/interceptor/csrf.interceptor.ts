@@ -18,6 +18,13 @@ export class CsrfInterceptor implements HttpInterceptor {
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const ignoredUrls = ["/api/v1/informazioni/recupera", "/api/v1/esperienza/esperienze"]; // Elenco degli URL da ignorare
+
+    // Controlla se è una richiesta GET e se l'URL corrisponde a quelli da ignorare
+    if (req.method === 'GET' && ignoredUrls.some(url => req.url.includes(url))) {
+      return next.handle(req); // Ignora l'intercettazione e continua
+    }
+
     let httpHeaders = new HttpHeaders();
     if (sessionStorage.getItem('userdetails')) {
       this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
@@ -27,7 +34,7 @@ export class CsrfInterceptor implements HttpInterceptor {
     }
     let xsrf = sessionStorage.getItem("XSRF-TOKEN");
     if (xsrf) {
-      httpHeaders = httpHeaders.append('X-XSRF-TOKEN', xsrf); // Modificato qui
+      httpHeaders = httpHeaders.append('X-XSRF-TOKEN', xsrf);
     }
     httpHeaders = httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
     const xhr = req.clone({
@@ -42,7 +49,7 @@ export class CsrfInterceptor implements HttpInterceptor {
           if (err.status !== 401) {
             return;
           }
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['home-page']);
         }
       }
     ));
