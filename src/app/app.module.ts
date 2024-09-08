@@ -25,6 +25,8 @@ import { LoginComponent } from './login/login.component';
 import { DescrizioneEsperienzaComponent } from './descrizione-esperienza/descrizione-esperienza.component';
 import { CsrfInterceptor } from './interceptor/csrf.interceptor';
 import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { GestioneCompetenzaComponent } from './gestione-competenza/gestione-competenza.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
     DynamicZoomDirective,
     LoginComponent,
     DescrizioneEsperienzaComponent,
+    GestioneCompetenzaComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
     MatInputModule,
     HttpClientModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [
     {

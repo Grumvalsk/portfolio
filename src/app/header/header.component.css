@@ -1,11 +1,46 @@
-.sezioni{
+/* Stili esistenti */
+.box {
+  height: 80px; /* Ridotto per adattare meglio il testo più piccolo */
+  text-transform: uppercase;
+  color: #0000; /* Trasparente per il colore del testo */
+  font-family: sans-serif;
+  font-size: 40px; /* Ridotto per rendere il testo più piccolo */
+  font-weight: bold;
+  background:
+    repeating-radial-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 0/2500px 2500px,
+    repeating-conic-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 50%/2500px 2500px;
+  background-blend-mode: difference;
+  mix-blend-mode: lighten;
+  -webkit-background-clip: text;
+          background-clip: text;
+  letter-spacing: 5px; /* Spaziatura tra le lettere ridotto per la dimensione più piccola */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap; /* Assicura che il testo non vada a capo */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #3c7455;
+}
+
+html {
+  background: #fff;
+}
+
+.sezioni {
   color: white;
   padding-top: 135px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap:10px
+  gap: 10px;
 }
+
 .presentazione {
   color: brown;
   display: flex;
@@ -14,21 +49,21 @@
   align-items: center;
 }
 
-.indici{
+.indici {
   color: white;
   padding-top: 10px;
   display: flex;
   flex-direction: row;
-  gap:10px;
-
+  gap: 10px;
 }
 
-.indici a{
+.indici a {
   color: brown;
   font-size: medium;
   text-decoration: none; /* Rimuove la sottolineatura */
 }
-.header{
+
+.header {
   height: 200px;
   padding: 10px;
   background-image: url('../../assets/matrix.jpg');
@@ -40,12 +75,12 @@
   align-items: center;
 }
 
-img{
+img {
   width: 20px;
   height: 30px;
 }
 
-.area-riservata{
+.area-riservata {
   border-radius: 50px;
   height: 45px;
   width: 45px;
@@ -54,5 +89,3 @@ img{
   align-items: center;
   background-color: brown;
 }
-
-

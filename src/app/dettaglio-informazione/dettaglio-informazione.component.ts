@@ -13,6 +13,8 @@ import { InformazioniService } from '../services/informazioni.service';
 export class DettaglioInformazioneComponent {
   inserisciForm: FormGroup;
   informazione:Informazioni= new Informazioni()
+  immagineBase64: string = ''; // Stringa base64 per l'immagine
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DettaglioInformazione,
@@ -37,12 +39,12 @@ export class DettaglioInformazioneComponent {
 
   inserisci(){
     if(this.inserisciForm.valid){
-      const value=this.inserisciForm.value;
+
       if(this.data.flgIntroduzione){
-          this.informazione.immagineIntroduzione=this.inserisciForm.value.immagine
+          this.informazione.immagineIntroduzione=this.immagineBase64
           this.informazione.introduzione=this.inserisciForm.value.descrizione
       }else{
-        this.informazione.immaginePresentazione=this.inserisciForm.value.immagine
+        this.informazione.immaginePresentazione=this.immagineBase64
         this.informazione.presentazione=this.inserisciForm.value.descrizione
       }
       this.informazioniService.inserisciInformazione(this.informazione).subscribe(
@@ -55,8 +57,28 @@ export class DettaglioInformazioneComponent {
         }
       );
 
+    }
+  }
 
-
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.immagineBase64 = reader.result as string;
+        if(this.data.flgIntroduzione){ // Converti l'immagine in base64
+        this.inserisciForm.patchValue({
+          immagineIntroduzione: this.immagineBase64 // Aggiorna il form con l'immagine base64
+        });
+       }else{
+        this.inserisciForm.patchValue({
+          immaginePresentazione: this.immagineBase64 // Aggiorna il form con l'immagine base64
+        });
+       }
+      };
+      reader.readAsDataURL(file);
+    } else {
+      console.error('Formato non supportato. Solo JPG e PNG sono accettati.');
     }
   }
 }

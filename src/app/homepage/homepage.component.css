@@ -34,57 +34,43 @@ img {
 /* Stili per lo slider */
 .slider {
   padding-top: 10px;
-
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   overflow: hidden;
   position: relative;
   margin: auto;
-}
-
-.slider::before,
-.slider::after {
-  background: linear-gradient(to right, rgb(249, 247, 249) 0%, rgba(255, 255, 255, 0) 100%);
-  content: "";
-  height: 100px;
-  position: absolute;
-  width: 200px;
-  z-index: 2;
-}
-
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-
-.slider::before {
-  left: 0;
-  top: 0;
+  background-color: rgb(186, 128, 128); /* Sfondo per lo slider */
+  height: 75px; /* Altezza dello slider */
 }
 
 .slide-track {
-  animation: scroll 40s linear infinite;
   display: flex;
-  width: calc(250px * 14);
+  width: 100%; /* Ampiezza totale della traccia */
   align-items: center;
-}
-
-.slide {
-  height: 50px;
-  width: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slide img {
-  max-height: 100%;
+  animation: scroll 60s linear infinite; /* Tempo per completare il ciclo di scorrimento */
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%); /* Inizia fuori a destra */
+  }
+  100% {
+    transform: translateX(-100%); /* Scorre fino a fuori a sinistra */
+  }
 }
+
+.slide {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; /* Spazio tra le immagini */
+}
+
+.img-slider {
+  width: 65px;
+  height: 65px;
+  border-radius: 50px;
+}
+
 /* Stili per il carosello 3D */
 .carousel-container {
   display: grid;
@@ -92,7 +78,6 @@ img {
   grid-template-columns: 1fr repeat(5, 30px) 1fr;
   align-items: center;
   justify-items: center;
-
 }
 
 main#carousel {
@@ -105,13 +90,13 @@ main#carousel {
   justify-content: center;
   overflow: hidden;
   transform-style: preserve-3d;
-  perspective: 600px;
   --items: 5;
   --middle: 3;
   --position: 1;
-
 }
-.work{
+
+.work {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,7 +128,68 @@ input[type="radio"] {
   text-align: center;
   color: #fff;
 }
-.experience-content{
+
+.experience-content {
   color: black;
   border-radius: 2000%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #100721;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+
+/* Stili per il contenitore delle esperienze */
+.container {
+  padding: 10px;
+  width: 100%; /* Estende il contenitore alla larghezza dello schermo */
+  display: flex;
+  justify-content: center;
+  height: 350px;
+  gap: 10px;
+  flex-wrap: wrap; /* Permette al contenitore di adattarsi a più righe se necessario */
+  overflow-x: auto; /* Aggiunge uno scroll orizzontale se necessario */
+  box-sizing: border-box; /* Assicura che padding e border siano inclusi nella larghezza */
+}
+
+.container > div {
+  flex: 1 1 120px; /* Permette ai div di crescere e ridursi in base allo spazio disponibile */
+  border-radius: 0.5rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #1e0e3e;
+  position: relative;
+  overflow: hidden;
+  background: none;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; /* Adatta l'immagine al contenitore */
+  background-position: center; /* Centra l'immagine */
+}
+
+.container > div img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Adatta l'immagine al contenitore senza deformarla */
+  display: block; /* Rimuove gli spazi sotto l'immagine */
+}
+
+.container > div:hover {
+  flex: 1 1 250px; /* Dimensione espansa del contenitore */
+  box-shadow: 1px 3px 15px #7645d8;
+  transform: translateY(-30px);
 }

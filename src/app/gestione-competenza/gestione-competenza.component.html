@@ -1,13 +1,13 @@
 <mat-dialog-content >
   <div class="dettaglio">
-    <div class="info">
-      <h3>Introduzione:</h3>
-    </div>
     <form [formGroup]="inserisciForm" (ngSubmit)="inserisci()">
       <div class="gruppo" >
+        <div class="titolo">
+          <h3>Dettaglio:</h3>
+        </div>
           <mat-form-field>
-            <mat-label>Descrizione:</mat-label>
-            <textarea matInput formControlName="descrizione"></textarea>
+            <mat-label>Nome:</mat-label>
+            <input matInput formControlName="nome">
           </mat-form-field>
           <div class="input-immagine">
             <label for="imageUpload">Carica immagine (JPG, PNG):</label>

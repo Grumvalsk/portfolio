@@ -1,9 +1,16 @@
 .contenuto{
   padding: 50px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.gestione-info{
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap:50px;
 }
 
 .titolo{
@@ -27,3 +34,56 @@ mat-card{
   justify-content: center;
 
 }
+
+
+.competenze {
+  position: relative;
+  display: flex;
+  gap:20px;
+}
+
+.fixed-button {
+  height: 50px;
+  width: 50px;
+  background-color: brown;
+  position: absolute; /* Cambia da fixed a absolute */
+  bottom: 0px; /* Distanza dal fondo del div competenze */
+  right: 20px; /* Distanza dal lato destro del div competenze */
+  z-index: 1000; /* Assicura che il bottone sia sopra le card */
+}
+
+.competenza{
+  padding: 10px;
+}
+.immagine-competenza{
+  width: 70px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.dati{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:500px;
+}
+
+.image{
+  display: flex;
+  padding: 10px;
+}
+
+.bottoni{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap:200px
+}
+
+.nome{
+  padding:20px
+}
+mat-expansion-panel{
+  width: 900px;
+}
+

@@ -5,21 +5,31 @@ import { MatDialog } from '@angular/material/dialog';
 import { DettaglioEsperienzaComponent } from '../dettaglio-esperienza/dettaglio-esperienza.component';
 import { DettaglioInformazioneComponent } from '../dettaglio-informazione/dettaglio-informazione.component';
 import { DettaglioInformazione } from '../model/dettaglio-informazione';
+import { CompetenzeService } from '../services/competenze.service';
+import { Competenza } from '../model/competenza';
+import { GestioneCompetenzaComponent } from '../gestione-competenza/gestione-competenza.component';
+import { Router } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-area-riservata-informazioni',
   templateUrl: './area-riservata-informazioni.component.html',
-  styleUrls: ['./area-riservata-informazioni.component.css']
+  styleUrls: ['./area-riservata-informazioni.component.css'],
+
 })
 export class AreaRiservataInformazioniComponent  {
-
-  titolo!:string
+  panelOpenState: boolean = false;  // Cambiato da signal a una variabile boolean
+  titolo!:string;
   informazioni : Informazioni = new Informazioni();
+  competenze:Competenza[]=[];
+  competenza:Competenza=new Competenza();
   dettaglioInformazione: DettaglioInformazione = new DettaglioInformazione();
 
-  constructor(private informazioniService: InformazioniService, public dialog: MatDialog) {}
+  constructor(private informazioniService: InformazioniService,
+    private competenzeService:  CompetenzeService,
+    public dialog: MatDialog,
+     private rotte:Router) {}
 
   ngOnInit(): void {
     this.informazioniService.getInformazioni().subscribe(
@@ -31,6 +41,14 @@ export class AreaRiservataInformazioniComponent  {
         console.error('Errore durante il recupero delle esperienze:', error);
       }
     );
+
+    this.competenzeService.getCompetenze().subscribe(
+      data=>{
+        this.competenze=data;
+        console.log('Competenze',this.competenze);
+
+      }
+    )
   }
 
   openDialogPresentazione(): void {
@@ -40,8 +58,8 @@ export class AreaRiservataInformazioniComponent  {
 
     this.dettaglioInformazione.descrizione = this.informazioni.presentazione || 'presentazione';
     this.dettaglioInformazione.immagine = this.informazioni.immaginePresentazione || 'presentazione immagine';
-    this.dettaglioInformazione.flgIntroduzione=false
-    console.log(this.dettaglioInformazione+"STATO");
+    this.dettaglioInformazione.flgIntroduzione=false;
+    console.log(this.dettaglioInformazione + " STATO");
 
     this.dialog.open(DettaglioInformazioneComponent, {
       data: this.dettaglioInformazione
@@ -53,14 +71,30 @@ export class AreaRiservataInformazioniComponent  {
       this.informazioni = new Informazioni();
     }
 
-    // Verifica se 'introduzione' è null o undefined prima di assegnarlo
     this.dettaglioInformazione.descrizione = this.informazioni.introduzione || 'introduzione';
     this.dettaglioInformazione.immagine = this.informazioni.immagineIntroduzione || 'introduzione immagine';
-    this.dettaglioInformazione.flgIntroduzione=true
-    console.log(this.dettaglioInformazione+"STATO");
+    this.dettaglioInformazione.flgIntroduzione=true;
+    console.log(this.dettaglioInformazione + " STATO");
+
     this.dialog.open(DettaglioInformazioneComponent, {
       data: this.dettaglioInformazione
     });
   }
 
+  openDialogCompetenza(competenza?:Competenza): void {
+    this.dialog.open(GestioneCompetenzaComponent, {
+      data: this.competenza
+    });
+  }
+
+  cancella(competenza:Competenza){
+    this.competenzeService.cancella(competenza.id).subscribe(
+      data=>{
+        console.log("Cancellazione avvenuta con successo");
+
+      }
+    )
+    this.rotte.navigate(['area-riservata'])
+
+  }
 }

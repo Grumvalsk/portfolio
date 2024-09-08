@@ -6,7 +6,7 @@
 }
 
 /* Specifico reset per il body */
-html {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -14,12 +14,20 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(137, 135, 135);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+main {
+  flex: 1; /* Consente al contenuto principale di crescere e occupare lo spazio disponibile */
 }
 
 footer {
+  background-color: #333; /* Colore di sfondo del footer (modifica secondo necessità) */
+  color: white; /* Colore del testo del footer */
+  text-align: center; /* Allinea il testo al centro */
+  padding: 20px; /* Spaziatura interna */
   margin-top: auto; /* Spinge il footer verso il fondo della pagina */
 }

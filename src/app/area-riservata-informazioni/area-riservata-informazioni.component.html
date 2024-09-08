@@ -1,31 +1,63 @@
 <div class="contenuto">
-  <mat-card class="example-card" appearance="outlined">
-    <div class="titolo">
-       <h2>Introduzione</h2>
-    </div>
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-subtitle>{{ informazioni.introduzione | truncate:200 }}</mat-card-subtitle>
-        <img mat-card-sm-image [src]="informazioni.immagineIntroduzione" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <button mat-button (click)="openDialogIntroduzione()">Modifica</button>
-    </mat-card-content>
-  </mat-card>
+  <div class="gestione-info">
+    <mat-card class="example-card" appearance="outlined">
+      <div class="titolo">
+        <h2>Introduzione</h2>
+      </div>
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-subtitle>{{ informazioni.introduzione | truncate:200 }}</mat-card-subtitle>
+          <img mat-card-sm-image [src]="informazioni.immagineIntroduzione">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button (click)="openDialogIntroduzione()">Modifica</button>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="example-card" appearance="outlined">
-    <div class="titolo">
-      <h2>Presentazione</h2>
-   </div>
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-subtitle>{{ informazioni.presentazione | truncate:200 }}</mat-card-subtitle>
-        <img mat-card-sm-image [src]="informazioni.immaginePresentazione" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      <button mat-button (click)="openDialogPresentazione()">Modifica</button>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="example-card" appearance="outlined">
+      <div class="titolo">
+        <h2>Presentazione</h2>
+      </div>
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-subtitle>{{ informazioni.presentazione | truncate:200 }}</mat-card-subtitle>
+          <img mat-card-sm-image [src]="informazioni.immaginePresentazione">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-button (click)="openDialogPresentazione()">Modifica</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="competenze">
+    <mat-accordion [multi]="false">
+      <div class="competenza" *ngFor="let competenza of competenze">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+           <div class="dati">
+            <div class="nome">
+              <mat-panel-title>
+                {{ competenza.nome }}
+              </mat-panel-title>
+            </div>
+            <div class="image">
+              <mat-panel-description>
+                <!-- Aggiungi la classe per lo stile -->
+                <img src={{competenza.immagine}} alt="Immagine competenza" class="immagine-competenza">
+              </mat-panel-description>
+            </div>
+          </div>
+          </mat-expansion-panel-header>
+          <div class="bottoni">
+            <button mat-button (click)="openDialogCompetenza(competenza)">Modifica</button>
+            <button mat-button (click)="cancella(competenza)">Cancella</button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+
+    <button mat-fab class="fixed-button" (click)="openDialogCompetenza()">+</button>
+  </div>
 </div>
