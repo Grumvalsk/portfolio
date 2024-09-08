@@ -1,4 +1,4 @@
-<div class="scheda">
+<div class="scheda" [ngStyle]="{'background-image': 'url(' + esp.immagineUrl + ')'}">
   <div class="contenuto">
     <div class="info">
       <div class="nome-progetto">
@@ -14,13 +14,10 @@
        <h3>{{esp.dataInizio}} - {{esp.dataFine}}</h3>
       </div>
     </div>
-    <div class="immagine">
-      <img src={{esp.immagineUrl}} alt="">
-    </div>
   </div>
-  <label >Descrizione:</label>
-  <div class="desccrizione">
-    <p>{{esp.descrizione}}</p>
+  <div class="descrizione">
+    <label >Descrizione:</label>
+      <p>{{esp.descrizione}}</p>
   </div>
   <div class="tecnologie">
     <label>Tecnologie utilizzate:</label>

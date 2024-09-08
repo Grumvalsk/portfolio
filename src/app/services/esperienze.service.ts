@@ -25,6 +25,6 @@ export class EsperienzeService {
   }
 
   cancella(id:number):Observable<any>{
-    return this.http.delete(`${this.baseUrl}/cancella/${id}`)
+    return this.http.delete(`${this.baseUrl}/cancella/${id}`,{ withCredentials: true,responseType: 'text'})
   }
 }

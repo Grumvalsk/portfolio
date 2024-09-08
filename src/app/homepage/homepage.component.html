@@ -12,7 +12,7 @@
     <p>{{ informazioni.introduzione }}</p>
   </div>
   <div class="immagine">
-    <img [src]="informazioni.immagineIntroduzione" alt="">
+    <img class="immagine-introduzione"[src]="informazioni.immagineIntroduzione" alt="">
   </div>
 </div>
 
@@ -28,13 +28,16 @@
 
 <div class="work">
   <div class="container">
-    <div *ngFor="let esperienza of esperienze"
-        [ngStyle]="{'background-image': 'url(' + esperienza.immagineUrl + ')'}"
-        (click)="dettaglioEsperienza(esperienza)">
+    <div  class="card-esperienza" *ngFor="let esperienza of esperienze"[ngStyle]="{'background-image': 'url(' + esperienza.immagineUrl + ')'}">
+     <div class="footer-card">
+      <div class="immagine-card">
+      </div>
       <div class="content">
         <h2>{{ esperienza.nomeAzienda }}</h2>
-        <span></span>
+        <h3>{{esperienza.nomeProgetto}}</h3>
+        <button class="btn" (click)="getMoreInfo(esperienza)"> Info</button>
       </div>
+    </div>
     </div>
   </div>
 </div>

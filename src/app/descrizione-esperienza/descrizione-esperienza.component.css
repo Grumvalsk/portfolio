@@ -1,14 +1,27 @@
-.scheda{
+.scheda {
   padding: 10px;
   width: 500px;
-  height:500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
+  background-size: cover; /* L'immagine copre tutto il div */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
+}
+
+.descrizione{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .contenuto{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
   padding: 10px;
   display: flex;
   flex-direction: row;
