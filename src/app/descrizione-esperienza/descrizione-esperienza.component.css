@@ -1,10 +1,10 @@
 .scheda {
   padding: 10px;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 60px;
   justify-content: center;
   align-items: center;
   background-size: cover; /* L'immagine copre tutto il div */
@@ -16,18 +16,61 @@
   padding: 10px;
   border-radius: 10px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-.contenuto{
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  padding: 10px;
+
+
+.info{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  background-color: white;
+  padding: 10px;
+  gap:10px;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.nome-azienda{
+  padding: 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.nome-progetto{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.periodo{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.tecnologie{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenuto-tec{
+  display: flex;
+  flex-direction: row;
 }
 
 img{

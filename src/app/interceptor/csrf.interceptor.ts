@@ -9,7 +9,8 @@ import {
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from 'portfolio/src/model/user';
+import { User } from '../user';
+
 
 @Injectable()
 export class CsrfInterceptor implements HttpInterceptor {

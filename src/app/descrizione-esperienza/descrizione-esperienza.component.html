@@ -2,11 +2,11 @@
   <div class="contenuto">
     <div class="info">
       <div class="nome-progetto">
-        <label >Nome Progetto:</label>
+        <label > Progetto:</label>
         <h3>{{esp.nomeProgetto}}</h3>
       </div>
       <div class="nome-azienda">
-        <label >Nome Azienda:</label>
+        <label > Azienda:</label>
         <h3>{{esp.nomeAzienda}}</h3>
       </div>
       <div class="periodo">
@@ -21,6 +21,10 @@
   </div>
   <div class="tecnologie">
     <label>Tecnologie utilizzate:</label>
-      <p></p>
+    <div class="contenuto-tec">
+      <ul *ngFor="let valore of valori">
+         <li>{{valore}}</li>
+      </ul>
+    </div>
   </div>
 </div>
