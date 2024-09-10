@@ -1,46 +1,43 @@
-/* Stili esistenti */
-.box {
-  height: 80px; /* Ridotto per adattare meglio il testo più piccolo */
-  text-transform: uppercase;
-  color: #0000; /* Trasparente per il colore del testo */
-  font-family: sans-serif;
-  font-size: 40px; /* Ridotto per rendere il testo più piccolo */
-  font-weight: bold;
-  background:
-    repeating-radial-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 0/2500px 2500px,
-    repeating-conic-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 50%/2500px 2500px;
-  background-blend-mode: difference;
-  mix-blend-mode: lighten;
-  -webkit-background-clip: text;
-          background-clip: text;
-  letter-spacing: 5px; /* Spaziatura tra le lettere ridotto per la dimensione più piccola */
+/* Stile esistente per l'header */
+.header {
+  height: 200px;
+  padding: 10px;
+  background-image: url('../../assets/matrix.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  white-space: nowrap; /* Assicura che il testo non vada a capo */
+  transition: height 0.2s ease, padding 0.2s ease; /* Aggiunta la transizione per rendere fluido il ridimensionamento */
+  position: fixed; /* Fissa l'header in alto */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Assicurati che l'header stia sopra gli altri elementi */
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  background: #3c7455;
+/* Stile per l'header ridotto */
+.header.shrink {
+  height: 80px; /* Ridotto */
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
-html {
-  background: #fff;
-}
-
+/* Stile per le sezioni */
 .sezioni {
   color: white;
-  padding-top: 135px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
 
+.header.shrink .sezioni {
+  padding-top: 0; /* Rimuove il padding quando è ridotto */
+}
+
+/* Presentazione e indici */
 .presentazione {
   color: brown;
   display: flex;
@@ -49,32 +46,46 @@ html {
   align-items: center;
 }
 
+.header.shrink .presentazione {
+  display: none; /* Nasconde la presentazione quando l'header è ridotto */
+}
+
 .indici {
   color: white;
-  padding-top: 10px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  align-items: center;
+  gap: 100px;
 }
 
 .indici a {
   color: brown;
   font-size: medium;
-  text-decoration: none; /* Rimuove la sottolineatura */
+  text-decoration: none;
 }
 
-.header {
-  height: 200px;
-  padding: 10px;
-  background-image: url('../../assets/matrix.jpg');
-  background-size: cover; /* Mostra l'intera immagine */
-  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+/* Stile della box per il titolo */
+.box {
+  height: 80px;
+  text-transform: uppercase;
+  color: #0000;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  background: repeating-radial-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 0/2500px 2500px,
+              repeating-conic-gradient(#000 0 0.0001%, #9e0606 0 0.0002%) 50% 50%/2500px 2500px;
+  background-blend-mode: difference;
+  mix-blend-mode: lighten;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 5px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 
+/* Altri stili */
 img {
   width: 20px;
   height: 30px;

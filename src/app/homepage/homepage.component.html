@@ -1,14 +1,6 @@
-<div class="slider">
-  <div class="slide-track">
-    <div class="slide" *ngFor="let competenza of competenze">
-      <img [src]="competenza.immagine" alt="" class="img-slider" />
-    </div>
-  </div>
-</div>
-
-<div class="introduzione">
+<div class="introduzione" id="introduzione">
   <div class="intro">
-    <h3><i>Benvenuti!</i></h3>
+    <h3>Benvenuti!</h3>
     <p>{{ informazioni.introduzione }}</p>
   </div>
   <div class="immagine">
@@ -16,17 +8,23 @@
   </div>
 </div>
 
-<div class="about-me">
+<div class="about-me" id="about-me">
   <div class="descrizione">
-    <h3><i>Chi sono?</i></h3>
+    <h3>Chi sono?</h3>
     <p>{{ informazioni.presentazione }}</p>
   </div>
   <div class="immagine">
     <img class="immagine-presentazione" [src]="informazioni.immaginePresentazione" alt="">
   </div>
 </div>
-
-<div class="work">
+<div class="slider">
+  <div class="slide-track">
+    <div class="slide" *ngFor="let competenza of competenze">
+      <img [src]="competenza.immagine" alt="" class="img-slider" />
+    </div>
+  </div>
+</div>
+<div class="work" id="work">
   <div class="container">
     <div  class="card-esperienza" *ngFor="let esperienza of esperienze"[ngStyle]="{'background-image': 'url(' + esperienza.immagineUrl + ')'}">
      <div class="footer-card">
@@ -34,7 +32,7 @@
       </div>
       <div class="content">
         <h2>{{ esperienza.nomeAzienda }}</h2>
-        <h3>{{esperienza.nomeProgetto}}</h3>
+        <h2>{{esperienza.nomeProgetto}}</h2>
         <button class="btn" (click)="getMoreInfo(esperienza)"> Info</button>
       </div>
     </div>

@@ -34,4 +34,8 @@ mat-card-header{
   z-index: 1000; /* Assicura che il bottone sia sopra le card */
 }
 
+.indici{
+  padding-top: 235px;
+}
+
 

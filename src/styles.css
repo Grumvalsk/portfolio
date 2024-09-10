@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgb(137, 135, 135);
+  background-color: wheat;
 }
 
 main {

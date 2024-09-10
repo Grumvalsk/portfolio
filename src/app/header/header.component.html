@@ -1,22 +1,20 @@
-<div class="header">
+<div class="header" [ngClass]="{'shrink': isShrunk}">
   <div class="presentazione">
-    <!-- <div class="titolo"> -->
-      <h1 class="box">PORTFOLIO DI TOMMASO</h1>
-    <!-- </div> -->
+    <h1 class="box">PORTFOLIO DI TOMMASO</h1>
     <div class="titoletto">
-      <h4><i>Ciao, sono uno sviluppatore </i></h4>
+      <h4><i>Ciao, sono uno sviluppatore</i></h4>
     </div>
   </div>
 
   <div class="sezioni">
     <div class="indici">
       <a [appDynamicZoom]="1.1" href="#presentazione">Home</a>
-      <a [appDynamicZoom]="1.1"href="#aboutMe">Su di Me</a>
-      <a [appDynamicZoom]="1.1"href="#carousel">Esperienze</a>
-      <a [appDynamicZoom]="1.1"href="#contattami">Contattami</a>
+      <a [appDynamicZoom]="1.1" href="#about-me">Su di Me</a>
+      <a [appDynamicZoom]="1.1" href="#work">Progetti</a>
+      <a [appDynamicZoom]="1.1" href="#contattami">Contattami</a>
+      <div class="area-riservata">
+      <a [appDynamicZoom]="1.1" (click)="areaRiservata()"> <img src="assets/admin.png" alt="area-riservata"></a>
     </div>
-    <div class="area-riservata">
-      <a [appDynamicZoom]="1.1" (click)="areaRiservata()"  > <img src="assets/admin.png" alt="area-riservata"></a>
     </div>
   </div>
 </div>

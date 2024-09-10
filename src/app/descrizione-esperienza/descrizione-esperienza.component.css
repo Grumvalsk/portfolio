@@ -1,6 +1,5 @@
 .scheda {
-  padding: 10px;
-  width: 700px;
+  padding: 100px;
   height: 700px;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@
 }
 
 .descrizione{
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   background-color: white;
   display: flex;
@@ -28,7 +27,7 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   gap:10px;
   align-items: center;
   justify-content: center;
@@ -60,12 +59,13 @@
 
 .tecnologie{
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .contenuto-tec{
@@ -78,3 +78,14 @@ img{
   height: 200px;
   border-radius: 10px;
 }
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+ letter-spacing: 3px;
+}
+
+h3{
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+

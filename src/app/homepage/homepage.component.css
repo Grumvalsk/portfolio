@@ -1,19 +1,37 @@
 /* Stili generali */
+
+.intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .introduzione {
   border:1px;
-  padding: 20px;
+  padding-top: 240px;
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10px;
+  gap: 50px;
+
 }
 
+h3{
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+}
+p{
+  font-family: Arial, Helvetica, sans-serif;
+ letter-spacing: 3px;
+}
 .about-me {
-  padding: 10px;
+  padding: 100px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  gap: 10px;
+  gap: 50px;
 }
 
 .immagine-presentazione {
@@ -46,7 +64,7 @@ img {
   overflow: hidden;
   position: relative;
   margin: auto;
-  background-color: rgb(186, 128, 128); /* Sfondo per lo slider */
+  background-color:wheat; /* Sfondo per lo slider */
   height: 75px; /* Altezza dello slider */
 }
 
@@ -204,8 +222,8 @@ body {
 }
 
 .btn {
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
+  font-size: 0.8rem; /* Riduce la dimensione del testo */
+  padding: 0.5rem 1.5rem; /* Riduce il padding interno */
   border: none;
   outline: none;
   border-radius: 0.4rem;
@@ -213,7 +231,7 @@ body {
   text-transform: uppercase;
   background-color: rgb(14, 14, 26);
   color: rgb(234, 234, 234);
-  font-weight: 700;
+  font-weight: 600;
   transition: 0.6s;
   box-shadow: 0px 0px 60px #1f4c65;
   -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
@@ -245,4 +263,11 @@ body {
   background: rgb(2,29,78);
   background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
   color: rgb(4, 4, 38);
+}
+
+.immagine{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
