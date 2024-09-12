@@ -1,12 +1,12 @@
 /* Stili generali */
-
-.intro{
+.intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .introduzione {
-  border:1px;
+  border: 1px;
   padding-top: 240px;
   padding-left: 100px;
   padding-right: 100px;
@@ -14,18 +14,19 @@
   flex-direction: row;
   justify-content: center;
   gap: 50px;
-
 }
 
-h3{
+h3 {
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 3px;
 }
-p{
+
+p {
   font-family: Arial, Helvetica, sans-serif;
- letter-spacing: 3px;
+  letter-spacing: 3px;
 }
+
 .about-me {
   padding: 100px;
   display: flex;
@@ -35,20 +36,16 @@ p{
 }
 
 .immagine-presentazione {
-  border-radius: 70px;
+  border-radius: 20px;
+}
+
+.immagine-introduzione {
+  border-radius: 20px;
 }
 
 img {
   width: 250px;
   height: 200px;
-}
-
-.immagine-presentazione{
-  border-radius: 20px;
-}
-
-.immagine-introduzione{
-  border-radius: 20px;
 }
 
 .info {
@@ -61,31 +58,27 @@ img {
 /* Stili per lo slider */
 .slider {
   padding-top: 10px;
-  overflow: hidden;
   position: relative;
   margin: auto;
-  background-color:wheat; /* Sfondo per lo slider */
-  height: 75px; /* Altezza dello slider */
+  background-color: wheat; /* Sfondo per lo slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Adatta la larghezza al contenuto */
+  overflow: hidden; /* Nasconde il contenuto che va fuori dal contenitore */
 }
 
 .slide-track {
   display: flex;
-  width: 100%; /* Ampiezza totale della traccia */
   align-items: center;
-  animation: scroll 60s linear infinite; /* Tempo per completare il ciclo di scorrimento */
+  gap: 18px;
+  white-space: nowrap; /* Impedisce il ritorno a capo */
+  transition: transform 1s ease-in-out; /* Transizione fluida per lo spostamento */
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(100%); /* Inizia fuori a destra */
-  }
-  100% {
-    transform: translateX(-100%); /* Scorre fino a fuori a sinistra */
-  }
-}
-
+/* Stili per le immagini nello slider */
 .slide {
-  height: 100%;
+  height: auto; /* Adatta l'altezza per contenere tutte le immagini */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,17 +229,19 @@ body {
   box-shadow: 0px 0px 60px #1f4c65;
   -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
 }
-.card-esperienza{
- padding: 10px;
- display: flex;
+
+.card-esperienza {
+  padding: 10px;
+  display: flex;
 }
 
-.footer-card{
+.footer-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.content{
+
+.content {
   border-radius: 20%;
   padding: 10px;
   display: flex;
@@ -259,15 +254,59 @@ body {
   scale: 0.92;
 }
 
-.btn:hover {
-  background: rgb(2,29,78);
-  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-  color: rgb(4, 4, 38);
+.container .btn:hover {
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  box-shadow: 0px 0px 80px #1f4c65;
+}
+.btn {
+  z-index: 10;
 }
 
-.immagine{
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #2b2b2b;
+  padding: 10px 20px;
+  color: white;
+  transition: background 0.3s, padding 0.3s;
+}
 
+.shrunk {
+  background: #1b1b1b;
+  padding: 5px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header h1.shrunk {
+  font-size: 1rem;
+}
+
+h2{
+  font-size: small;
+}
+
+.contattami{
+  padding: 100px;
+  width: 1000px;
+}
+ul li {
+  margin-bottom: 10px; /* Aggiunge spazio sotto ciascun <li> */
+  margin-left:20px;
+}
+a{
+    text-decoration: none; /* Rimuove la sottolineatura predefinita (opzionale) */
+  color: brown; /* Colore del link normale */
+}
+
+.contatti{
   display: flex;
-  align-items: center;
   justify-content: center;
 }

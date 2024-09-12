@@ -16,13 +16,8 @@ export class HeaderComponent {
   constructor(private rotte: Router, public dialog: MatDialog) {}
 
   areaRiservata() {
-    if (sessionStorage.getItem('userdetails')) {
-      this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
-      if (this.user.email.length === 0) {
-        this.rotte.navigate(['login']);
-      } else {
+    if (sessionStorage.getItem('Authorization')) {
         this.rotte.navigate(['area-riservata']);
-      }
     } else {
       this.rotte.navigate(['login']);
     }

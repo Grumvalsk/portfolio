@@ -29,6 +29,8 @@ competenza:Competenza= new Competenza();
         immagine:['',Validators.required]
       })
     }else{
+      console.log(data);
+
       this.inserisciForm=this.fb.group({
         nome:[this.competenza.nome,Validators.required],
         immagine:[this.competenza.immagine,Validators.required]

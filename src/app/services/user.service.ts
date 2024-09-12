@@ -13,13 +13,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  login(user: User): Observable<any> {
-    window.sessionStorage.setItem("userdetails", JSON.stringify(user));
-    const headers = new HttpHeaders({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    });
-    return this.http.get(`${this.baseUrl}/login`, { headers, withCredentials: true,responseType: 'json' });
+  login(user: User) {
+    window.sessionStorage.setItem("userdetails",JSON.stringify(user));
+    return this.http.get(`${this.baseUrl}/login`, { observe:'response', withCredentials: true,responseType: 'json' });
   }
 
 }

@@ -82,8 +82,10 @@ export class AreaRiservataInformazioniComponent  {
   }
 
   openDialogCompetenza(competenza?:Competenza): void {
+    console.log(competenza);
+
     this.dialog.open(GestioneCompetenzaComponent, {
-      data: this.competenza
+      data: competenza
     });
   }
 

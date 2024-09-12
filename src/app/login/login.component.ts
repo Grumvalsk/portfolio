@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
     this.user.password = this.loginForm.value.password;
 
     this.userService.login(this.user).subscribe(
-      (responseData) => {
-        console.log('Login successful', responseData);
-        this.user = responseData;
-        this.user.authStatus = 'AUTH';
-        window.sessionStorage.setItem("userdetails", JSON.stringify(this.user));
+      (response: HttpResponse<any>) => {
+        debugger
+        console.log('Login successful', response);
+        const token = response.headers.get("Authorization")!;
+        sessionStorage.setItem("Authorization",token)
+
 
         // Assicurati che xsrf non sia undefined
         const xsrf = getCookie("XSRF-TOKEN") || ''; // Imposta un valore di fallback

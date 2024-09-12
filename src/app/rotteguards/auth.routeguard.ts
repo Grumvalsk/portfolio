@@ -6,23 +6,17 @@ import { User } from '../user';
 
 @Injectable()
 export class AuthActivateRouteGuard {
-    user = new User();
 
     constructor(private router: Router){
 
     }
 
     canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot){
-        if(sessionStorage.getItem('userdetails')){
-            this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
-            if(this.user.email.length===0){
-              this.router.navigate(['home-page']);
-          }
-        }else{
-          this.router.navigate(['home-page']);
+        if(!sessionStorage.getItem('Authorization')){
+            this.router.navigate(['home-page']);
         }
 
-        return this.user.email.length!==0?true:false;
+        return true;
     }
 
 }

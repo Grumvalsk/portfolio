@@ -24,12 +24,16 @@
 .singolo{
   padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap:10px;
 }
 
 .descrizione{
   width: 1000px;
+}
+.rimuovi-tec{
+  font-size: xx-large;
 }
 
 .tecnologie-container{
