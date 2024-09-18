@@ -27,6 +27,7 @@ import { CsrfInterceptor } from './interceptor/csrf.interceptor';
 import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { GestioneCompetenzaComponent } from './gestione-competenza/gestione-competenza.component';
+import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { GestioneCompetenzaComponent } from './gestione-competenza/gestione-comp
     LoginComponent,
     DescrizioneEsperienzaComponent,
     GestioneCompetenzaComponent,
+    PolicyComponent,
   ],
   imports: [
     BrowserModule,

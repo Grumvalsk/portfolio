@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DescrizioneEsperienzaComponent } from '../descrizione-esperienza/descrizione-esperienza.component';
 import { CompetenzeService } from '../services/competenze.service';
 import { Competenza } from '../model/competenza';
+import { PolicyComponent } from '../policy/policy.component';
 
 @Component({
   selector: 'app-homepage',
@@ -28,6 +29,9 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    this.openDialogOnLoad();
+
     this.service.getEsperienze().subscribe(
       data => {
         this.esperienze = data;
@@ -98,6 +102,15 @@ export class HomepageComponent implements OnInit {
         }, 1000); // Tempo per completare l'animazione
       }
     }, 30000); // Cambia ogni 30 secondi
+  }
+
+  openDialogOnLoad(): void {
+    this.dialog.open(PolicyComponent, {
+      width: '400px', // Puoi specificare la larghezza della dialog
+      data: {
+        message: 'Benvenuto nella homepage!' // Puoi passare dati alla dialog se necessario
+      }
+    });
   }
 
   ngOnDestroy(): void {

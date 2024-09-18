@@ -52,7 +52,9 @@ export class LoginComponent implements OnInit {
         this.rotte.navigate(['area-riservata']);
       },
       (error) => {
+        window.alert("Credenziali errate")
         console.error('Login error', error);
+        this.rotte.navigate(['login'])
       }
     );
   }

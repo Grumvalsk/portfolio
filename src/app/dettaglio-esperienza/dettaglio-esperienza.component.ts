@@ -110,6 +110,7 @@ export class DettaglioEsperienzaComponent {
         (response: HttpResponse<any>) => {
           console.log(response);
           this.dialogRef.close();
+          
         },
         (error: any) => {
           console.error(error.error);

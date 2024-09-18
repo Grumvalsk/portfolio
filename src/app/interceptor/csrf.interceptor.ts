@@ -20,7 +20,6 @@ export class CsrfInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const ignoredUrls = ["/api/v1/informazioni/recupera", "/api/v1/esperienza/esperienze","/api/v1/competenza/competenze"]; // Elenco degli URL da ignorare
-
     // Controlla se è una richiesta GET e se l'URL corrisponde a quelli da ignorare
     if (req.method === 'GET' && ignoredUrls.some(url => req.url.includes(url))) {
       return next.handle(req); // Ignora l'intercettazione e continua

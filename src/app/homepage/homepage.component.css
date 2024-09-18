@@ -307,6 +307,8 @@ a{
 }
 
 .contatti{
+  padding: 100px;
+  background-color: gray;
   display: flex;
   justify-content: center;
 }
