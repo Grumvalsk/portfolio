@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.user).subscribe(
       (response: HttpResponse<any>) => {
-        debugger
         console.log('Login successful', response);
         const token = response.headers.get("Authorization")!;
         sessionStorage.setItem("Authorization",token)

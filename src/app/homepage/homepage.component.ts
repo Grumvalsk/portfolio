@@ -35,6 +35,8 @@ export class HomepageComponent implements OnInit {
     this.service.getEsperienze().subscribe(
       data => {
         this.esperienze = data;
+        console.log(data);
+
         this.updateCarousel(); // Aggiorniamo la posizione del carosello all'inizio
       },
       error => {
