@@ -8,6 +8,7 @@ import { DescrizioneEsperienzaComponent } from '../descrizione-esperienza/descri
 import { CompetenzeService } from '../services/competenze.service';
 import { Competenza } from '../model/competenza';
 import { PolicyComponent } from '../policy/policy.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -21,16 +22,22 @@ export class HomepageComponent implements OnInit {
   currentIndex: number = 0;
   intervalId: any; // Per tenere traccia dell'intervallo di animazione
 
+
   constructor(
     private service: EsperienzeService,
+    private userService:UserService,
     private informazioniService: InformazioniService,
     private competenzaService: CompetenzeService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
+        const flagPolicy=sessionStorage.getItem('letturaPolicy')
 
-    this.openDialogOnLoad();
+    if(flagPolicy===null||flagPolicy===undefined){
+      this.openDialogOnLoad();
+      sessionStorage.setItem('letturaPolicy','true')
+    }
 
     this.service.getEsperienze().subscribe(
       data => {

@@ -9,6 +9,7 @@ import { User } from '../user';
 })
 export class UserService {
 
+  policyVisionata!:boolean;
   private baseUrl = 'http://localhost:8080/api/v1/user';
 
   constructor(private http: HttpClient) { }
@@ -16,6 +17,14 @@ export class UserService {
   login(user: User) {
     window.sessionStorage.setItem("userdetails",JSON.stringify(user));
     return this.http.get(`${this.baseUrl}/login`, { observe:'response', withCredentials: true,responseType: 'json' });
+  }
+
+  getStatePolicy(){
+    return this.policyVisionata;
+  }
+
+  setPolicy(value:boolean){
+    this.policyVisionata=value;
   }
 
 }

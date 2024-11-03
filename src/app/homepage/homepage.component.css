@@ -88,7 +88,7 @@ img {
 .img-slider {
   width: 65px;
   height: 65px;
-  border-radius: 50px;
+
 }
 
 /* Stili per il carosello 3D */
@@ -308,7 +308,7 @@ a{
 
 .contatti{
   padding: 100px;
-  background-color: gray;
   display: flex;
   justify-content: center;
+  font-size: large;
 }

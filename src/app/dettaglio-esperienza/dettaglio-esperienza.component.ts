@@ -94,8 +94,6 @@ export class DettaglioEsperienzaComponent {
   aggiorna() {
     if (this.inserisciForm.valid) {
       debugger
-      console.log(""+this.immagineBase64);
-
       const formValues = this.inserisciForm.value;
       this.esperienza.id = this.data.id;
       this.esperienza.nomeProgetto = formValues.nomeProgetto;
@@ -110,7 +108,7 @@ export class DettaglioEsperienzaComponent {
         (response: HttpResponse<any>) => {
           console.log(response);
           this.dialogRef.close();
-          
+
         },
         (error: any) => {
           console.error(error.error);
@@ -120,6 +118,7 @@ export class DettaglioEsperienzaComponent {
   }
 
   inserisci() {
+    debugger
     if (this.inserisciForm.valid) {
       const formValues = this.inserisciForm.value;
       this.esperienza.nomeProgetto = formValues.nomeProgetto;
