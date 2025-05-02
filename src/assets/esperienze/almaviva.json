@@ -1,0 +1,20 @@
+
+    {
+      "nomeAzienda": "Tech Solutions",
+      "nomeProgetto": "Website Redesign",
+      "inizioProgetto": "2022-01-15",
+      "fineProgetto": "2022-06-30",
+      "descrizioneAttivitaSvolta": "Redesign of the company's main website to improve user experience and performance.",
+      "img":"assets/img/esperienze/nttdata.jpg",
+      "tecnologie": [
+        {
+          "nome": "React",
+          "versione": "17.0.2"
+        },
+        {
+          "nome": "Node.js",
+          "versione": "14.17.0"
+        }
+      ]
+
+}

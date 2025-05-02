@@ -1,4 +1,4 @@
-<div class="scheda" [ngStyle]="{'background-image': 'url(' + esp.immagineUrl + ')'}">
+<div class="scheda" [ngStyle]="{'background-image': 'url(' + esp.img + ')'}">
   <div class="contenuto">
     <div class="info">
       <div class="nome-progetto">
@@ -11,12 +11,12 @@
       </div>
       <div class="periodo">
         <label >Durata:</label>
-       <h3>{{esp.dataInizio}} - {{esp.dataFine}}</h3>
+       <h3>{{esp.inizioProgetto}} - {{esp.fineProgetto}}</h3>
       </div>
     </div>
   </div>
   <div class="descrizione">
-      <p>{{esp.descrizione}}</p>
+      <p>{{esp.descrizioneAttivitaSvolta}}</p>
   </div>
   <div class="tecnologie">
     <label>Tecnologie utilizzate:</label>

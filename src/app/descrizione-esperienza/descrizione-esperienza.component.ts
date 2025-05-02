@@ -9,7 +9,7 @@ import { Tecnologia } from '../model/tecnologia';
   styleUrls: ['./descrizione-esperienza.component.css']
 })
 export class DescrizioneEsperienzaComponent {
-  esp:Esperienza=new Esperienza()
+  esp:any
   tecnologie:Tecnologia[]=[];
   valori:string[]=[];
   constructor( @Inject(MAT_DIALOG_DATA) public data: Esperienza){

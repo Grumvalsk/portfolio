@@ -9,6 +9,7 @@ import { CompetenzeService } from '../services/competenze.service';
 import { Competenza } from '../model/competenza';
 import { PolicyComponent } from '../policy/policy.component';
 import { UserService } from '../services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-homepage',
@@ -16,8 +17,9 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  informazioni: Informazioni = new Informazioni();
-  esperienze: Esperienza[] = [];
+  descrizione: any;
+  presentazione: any;
+  esperienze: any[] = [];
   competenze: Competenza[] = [];
   currentIndex: number = 0;
   intervalId: any; // Per tenere traccia dell'intervallo di animazione
@@ -28,49 +30,71 @@ export class HomepageComponent implements OnInit {
     private userService:UserService,
     private informazioniService: InformazioniService,
     private competenzaService: CompetenzeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private http: HttpClient
   ) {}
-
   ngOnInit(): void {
-        const flagPolicy=sessionStorage.getItem('letturaPolicy')
+    const flagPolicy = sessionStorage.getItem('letturaPolicy');
 
-    if(flagPolicy===null||flagPolicy===undefined){
+    if (flagPolicy === null || flagPolicy === undefined) {
       this.openDialogOnLoad();
-      sessionStorage.setItem('letturaPolicy','true')
+      sessionStorage.setItem('letturaPolicy', 'true');
     }
 
-    this.service.getEsperienze().subscribe(
-      data => {
-        this.esperienze = data;
-        console.log(data);
+    // ✅ Caricamento manuale dei file JSON da assets/esperienze
+    const jsonFiles = ['almaviva.json', 'nttdata.json'];
+    const basePath = 'assets/esperienze/';
 
-        this.updateCarousel(); // Aggiorniamo la posizione del carosello all'inizio
-      },
-      error => {
-        console.error('Errore durante il recupero delle esperienze:', error);
-      }
-    );
+    jsonFiles.forEach(file => {
+      this.http.get(`${basePath}${file}`).subscribe(
+        data => {
+          console.log('Caricamento di:', data);
+          this.esperienze.push(data);
+          this.updateCarousel();
+        },
+        error => {
+          console.error(`Errore nel caricamento di ${file}:`, error);
+        }
+      );
+    });
+    const filesInformazioni = ['descrizione.json', 'presentazione.json'];
+    const basePathInformazioni = 'assets/informazioni/';
+    filesInformazioni.forEach(file => {
+      this.http.get(`${basePathInformazioni}${file}`).subscribe(
+        data => {
+          console.log(`Caricamento di INFORMAZIONI da ${file}:`, data);
 
-    this.informazioniService.getInformazioni().subscribe(
-      data => {
-        this.informazioni = data;
-        console.log(this.informazioni);
-      },
-      error => {
-        console.error('Errore durante il recupero delle informazioni:', error);
-      }
-    );
+          if (file === 'descrizione.json') {
+            // Fai qualcosa di specifico per descrizione.json
+            this.descrizione = data;
+          } else if (file === 'presentazione.json') {
+            // Fai qualcosa di specifico per presentazione.json
+            this.presentazione = data;
+          }
+
+          this.updateCarousel(); // Se vuoi aggiornare comunque il carosello
+        },
+        error => {
+          console.error(`Errore nel caricamento di ${file}:`, error);
+        }
+      );
+    });
+
+    // Altri caricamenti
+    // this.informazioniService.getInformazioni().subscribe(
+    //   data => this.informazioni = data,
+    //   error => console.error('Errore durante il recupero delle informazioni:', error)
+    // );
 
     this.competenzaService.getCompetenze().subscribe(
       data => {
         this.competenze = data;
-        this.startSliderAnimation(); // Avvia l'animazione dello slider
+        this.startSliderAnimation();
       },
-      error => {
-        console.error('Errore durante il recupero delle competenze:', error);
-      }
+      error => console.error('Errore durante il recupero delle competenze:', error)
     );
   }
+
 
   dettaglioEsperienza(esperienza: Esperienza): void {
     console.log('Esperienza selezionata:', esperienza);

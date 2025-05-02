@@ -1,20 +1,20 @@
 <div class="introduzione" id="introduzione">
   <div class="intro">
     <h3>Benvenuti!</h3>
-    <p>{{ informazioni.introduzione }}</p>
+    <p>{{ descrizione.descrizione }}</p>
   </div>
   <div class="immagine">
-    <img class="immagine-introduzione" [src]="informazioni.immagineIntroduzione" alt="">
+    <img class="immagine-introduzione" [src]="descrizione.img" alt="">
   </div>
 </div>
 
 <div class="about-me" id="about-me">
   <div class="descrizione">
     <h3>Chi sono?</h3>
-    <p>{{ informazioni.presentazione }}</p>
+    <p>{{ presentazione.descrizione }}</p>
   </div>
   <div class="immagine">
-    <img class="immagine-presentazione" [src]="informazioni.immaginePresentazione" alt="">
+    <img class="immagine-presentazione" [src]="presentazione.img" alt="">
   </div>
 </div>
 
@@ -28,7 +28,7 @@
 
 <div class="work" id="work">
   <div class="container">
-    <div class="card-esperienza" *ngFor="let esperienza of esperienze" [ngStyle]="{'background-image': 'url(' + esperienza.immagineUrl + ')'}">
+    <div class="card-esperienza" *ngFor="let esperienza of esperienze" [ngStyle]="{'background-image': 'url(' + esperienza.img + ')'}">
       <div class="footer-card">
         <div class="immagine-card">
         </div>
