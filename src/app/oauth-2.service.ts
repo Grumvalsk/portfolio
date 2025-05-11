@@ -9,7 +9,7 @@ export class Oauth2Service {
 
   loginWithGoogle(): void {
     const clientId = '841366050574-hd34fl2knl6aq416jrqln4dmo5ec20fj.apps.googleusercontent.com';
-    const redirectUri = 'https://portfoliogrumvalski.vercel.app/home';
+    const redirectUri = 'https://portfoliogrumvalski.vercel.app';
     const scope = 'email profile openid';
     const responseType = 'token';
     const state = crypto.randomUUID(); // oppure un tuo valore
