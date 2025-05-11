@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
     });  }
 
   areaRiservata() {
+    debugger
     const token=sessionStorage.getItem("token");
     const exp=sessionStorage.getItem("exp")
     if(!token&&!exp){
