@@ -1,19 +1,35 @@
 
     {
-      "nomeAzienda": "Tech Solutions",
-      "nomeProgetto": "Website Redesign",
-      "inizioProgetto": "2022-01-15",
-      "fineProgetto": "2022-06-30",
-      "descrizioneAttivitaSvolta": "Redesign of the company's main website to improve user experience and performance.",
-      "img":"assets/img/esperienze/nttdata.jpg",
+      "nomeAzienda": "INFO CAMERE (NTT DATA)",
+      "nomeProgetto": "Sviluppo security proxy",
+      "inizioProgetto": "01/04/2023",
+      "fineProgetto": "20/12/2023",
+      "descrizioneAttivitaSvolta": "Durante l'ingaggio da parte del cliente mi sono occupato dello sviluppo da zero di 5 proxy predisposti allo scopo di autenticazione e autorizzazione degli utenti tramite protocollo Oauth2, occupandomi dell recupero delle risorse dai vari resorces servers tramite http client com Rest Template e Web Client.Misono anche ocuppato in alcuni casi di implementare un rate limiter tramite Redis(verificandone anche il funzionamento tramite stress test)",
+      "img":"assets/img/esperienze/nttdata.png",
       "tecnologie": [
         {
-          "nome": "React",
-          "versione": "17.0.2"
+          "nome": "Spring Boot",
+          "versione": "2.7.11"
         },
         {
-          "nome": "Node.js",
-          "versione": "14.17.0"
+          "nome": "JDK",
+          "versione": "8"
+        },
+        {
+          "nome": "Redis",
+          "versione": ""
+        },
+        {
+          "nome": "Open APi",
+          "versione": "1.6"
+        },
+        {
+          "nome": "MongoDB",
+          "versione": ""
+        },
+        {
+          "nome": "Jmeter",
+          "versione": "5.4.3"
         }
       ]
 

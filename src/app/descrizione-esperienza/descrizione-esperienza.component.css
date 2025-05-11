@@ -6,7 +6,8 @@
   gap: 60px;
   justify-content: center;
   align-items: center;
-  background-size: cover; /* L'immagine copre tutto il div */
+  background-size: cover;
+  scale: inherit; /* L'immagine copre tutto il div */
   background-position: center; /* L'immagine è centrata */
   background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
 }
