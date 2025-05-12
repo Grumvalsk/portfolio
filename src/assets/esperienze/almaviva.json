@@ -1,19 +1,31 @@
 
     {
-      "nomeAzienda": "Tech Solutions",
-      "nomeProgetto": "Website Redesign",
-      "inizioProgetto": "2022-01-15",
-      "fineProgetto": "2022-06-30",
-      "descrizioneAttivitaSvolta": "Redesign of the company's main website to improve user experience and performance.",
+      "nomeAzienda": "Almaviva",
+      "nomeProgetto": "Reingegnerizzazione del Sistema Informativo Trapianti (SIT)",
+      "inizioProgetto": "10/01/2024",
+      "fineProgetto": "20/07/2024",
+      "descrizioneAttivitaSvolta": "Implementazione di componenti applicative back-end, tramite RestController, Service, JPA Repository, avendo come riferimento i flussi elaborativi dell’attuale sistema, e riportando le stesse logiche (query) di estrazione e persistenza dei dati",
       "img":"assets/img/esperienze/nttdata.jpg",
       "tecnologie": [
         {
-          "nome": "React",
-          "versione": "17.0.2"
+          "nome": "Spring Boot",
+          "versione": "3.0.0"
         },
         {
-          "nome": "Node.js",
-          "versione": "14.17.0"
+          "nome": "Angular",
+          "versione": "15"
+        },
+        {
+          "nome": "JDK",
+          "versione": "11"
+        },
+        {
+          "nome": "iText",
+          "versione": "5"
+        },
+        {
+          "nome": "DB Oracle",
+          "versione": "12"
         }
       ]
 

@@ -233,6 +233,9 @@ body {
 .card-esperienza {
   padding: 10px;
   display: flex;
+  background-size: cover; /* L'immagine copre tutto il div */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
 }
 
 .footer-card {
