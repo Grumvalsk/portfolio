@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private rotte: Router, public dialog: MatDialog,private googleService:Oauth2Service,private route: ActivatedRoute) {}
   ngOnInit(): void {
+    console.log("URL "+this.route.paramMap)
     this.route.paramMap.subscribe(params => {
       const access_token = params.get('access_token');
       if(access_token){
