@@ -5,7 +5,7 @@
       "inizioProgetto": "10/01/2024",
       "fineProgetto": "20/07/2024",
       "descrizioneAttivitaSvolta": "Implementazione di componenti applicative back-end, tramite RestController, Service, JPA Repository, avendo come riferimento i flussi elaborativi dell’attuale sistema, e riportando le stesse logiche (query) di estrazione e persistenza dei dati",
-      "img":"assets/img/esperienze/nttdata.jpg",
+      "img":"assets/img/esperienze/almaviva.png",
       "tecnologie": [
         {
           "nome": "Spring Boot",
