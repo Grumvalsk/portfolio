@@ -6,7 +6,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
@@ -28,6 +27,9 @@ import { AuthActivateRouteGuard } from './rotteguards/auth.routeguard';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { GestioneCompetenzaComponent } from './gestione-competenza/gestione-competenza.component';
 import { PolicyComponent } from './policy/policy.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { PolicyComponent } from './policy/policy.component';
     HttpClientModule,
     FormsModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [
     {

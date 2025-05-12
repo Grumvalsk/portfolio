@@ -17,4 +17,26 @@
     </div>
     </div>
   </div>
+  <div class="menu">
+    <button class="tendina" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon><span class="material-icons">menu</span></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+       <a [appDynamicZoom]="1.1" href="#presentazione"><b>HOME</b></a>
+    </button>
+    <button mat-menu-item >
+      <a [appDynamicZoom]="1.1" href="#about-me"><b>SU DI ME</b></a>
+    </button>
+    <button mat-menu-item>
+      <a [appDynamicZoom]="1.1" href="#work"><b>PROGETTI</b></a>
+    </button>
+    <button mat-menu-item>
+      <a [appDynamicZoom]="1.1" href="#contattami"><b>CONTATTAMI</b></a>
+    </button>
+  </mat-menu>
+    <div class="area-riservata">
+      <a [appDynamicZoom]="1.1" (click)="areaRiservata()"> <img src="assets/admin.png" alt="area-riservata"></a>
+    </div>
+  </div>
 </div>
