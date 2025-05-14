@@ -42,7 +42,7 @@ export class HomepageComponent implements OnInit {
     }
 
     // ✅ Caricamento manuale dei file JSON da assets/esperienze
-    const jsonFiles = ['almaviva.json', 'nttdata.json'];
+    const jsonFiles = ['almaviva.json', 'nttdata.json','renault.json'];
     const basePath = 'assets/esperienze/';
 
     jsonFiles.forEach(file => {

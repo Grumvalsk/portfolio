@@ -1,0 +1,40 @@
+
+    {
+      "nomeAzienda": "Renault Italia",
+      "nomeProgetto": "Supporto IT",
+      "inizioProgetto": "16/09/2024",
+      "fineProgetto": "in corso",
+      "descrizioneAttivitaSvolta": "Operazioni di bug fix su gestionali attivi, aggiunta nuve implementazioni in contesto monolitico, operazioni di deploy su ambiente di test, verifica funzionamento e miglioramento funzionalità, a cui si sta affiancando un processo di reingegnerizzazione di un applicativo esistente in un contesto Devops tramite Gitlab con deploy su GCP",
+      "img":"assets/img/esperienze/renault.png",
+      "tecnologie": [
+        {
+          "nome": "Spring Boot",
+          "versione": "3.0.0"
+        },
+        {
+          "nome": "Angular JS",
+          "versione": "xx"
+        },
+        {
+          "nome": "JDK",
+          "versione": "8-21"
+        },
+        {
+          "nome": "Spring",
+          "versione": "xx"
+        },
+        {
+          "nome": "DB MySqlServer",
+          "versione": "xx"
+        },
+        {
+          "nome": "DB Postgres",
+          "versione": "xx"
+        },
+        {
+          "nome": "Docker",
+          "versione": "xx"
+        }
+      ]
+
+}
