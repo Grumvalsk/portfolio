@@ -105,7 +105,7 @@ img {
   justify-content: center;
   }
   .presentazione{
-    margin-left:-10%;
+    margin-left:-5%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -143,6 +143,12 @@ img {
     border: none;
     color: brown;
     cursor: pointer;
+  }
+  ::ng-deep .mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
+    background-color: black !important;
+  }
+  .indice-menu{
+    background-color: black !important;
   }
   .sezioni{
     display: none;

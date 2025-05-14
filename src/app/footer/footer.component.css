@@ -15,7 +15,6 @@ html, body {
 .footer {
   color: brown;
   background-image: url('../../assets/matrix.jpg');
-  height: 120px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,134 +28,8 @@ html, body {
 }
 
 
-.link{
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+@media (max-width: 400px) {
+  .footer{
+    width: 100%;
+  }
 }
-
-.Btn {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
-  position: relative;
-  /* overflow: hidden; */
-  border-radius: 7px;
-  cursor: pointer;
-  transition: all .3s;
-}
-
-.svgContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  backdrop-filter: blur(0px);
-  letter-spacing: 0.8px;
-  border-radius: 10px;
-  transition: all .3s;
-  border: 1px solid rgba(0, 21, 255, 0.466);
-}
-
-.BG {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #1206ed;
-  z-index: -1;
-  border-radius: 10px;
-  pointer-events: none;
-  transition: all .3s;
-}
-
-.Btn:hover .BG {
-  transform: rotate(35deg);
-  transform-origin: bottom;
-}
-
-.Btn:hover .svgContainer {
-  background-color: rgba(9, 44, 240, 0.466);
-  backdrop-filter: blur(4px);
-}
-
-.LinkedinBtn {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  background-color: blue;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  position: relative;
-  border-radius: 7px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.LinkedinBtn .svgContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  backdrop-filter: blur(4px);
-  letter-spacing: 1px; /* Adjusted letter spacing */
-  border-radius: 10px;
-  transition: all 0.3s;
-  border: 1px solid rgba(15, 37, 237, 0.466);
-}
-
-/* .LinkedinBtn .BG {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #0077b5;
-  z-index: -1;
-  border-radius: 9px;
-  pointer-events: none;
-  transition: all 0.3s;
-} */
-
-.LinkedinBtn .BG {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #0077ff; /* Blu acceso anche senza hover */
-  z-index: -1;
-  border-radius: 9px;
-  pointer-events: none;
-  transition: all 0.3s;
-}
-
-.LinkedinBtn:hover .BG {
-  background: #0052cc; /* Cambia leggermente il blu durante hover, opzionale */
-  transform: rotate(35deg);
-  transform-origin: bottom;
-}
-
-
-.LinkedinBtn:hover {
-  box-shadow: 0 0 10px rgba(24, 6, 228, 0.2); /* Added box shadow effect */
-}
-
-
-
-.LinkedinBtn:hover .svgContainer {
-  background-color: rgba(65, 14, 174, 0.466);
-}
-
-
-
-
-
