@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { EsperienzeService } from '../services/esperienze.service';
 import { Esperienza } from '../model/esperienza';
-import { Informazioni } from '../model/informazioni';
-import { InformazioniService } from '../services/informazioni.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DescrizioneEsperienzaComponent } from '../descrizione-esperienza/descrizione-esperienza.component';
 import { CompetenzeService } from '../services/competenze.service';
 import { Competenza } from '../model/competenza';
 import { PolicyComponent } from '../policy/policy.component';
-import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -26,9 +22,6 @@ export class HomepageComponent implements OnInit {
 
 
   constructor(
-    private service: EsperienzeService,
-    private userService:UserService,
-    private informazioniService: InformazioniService,
     private competenzaService: CompetenzeService,
     public dialog: MatDialog,
     private http: HttpClient

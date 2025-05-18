@@ -336,5 +336,44 @@ a{
     transform: scale(1.05); /* Effetto ingrandimento reattivo */
     box-shadow: 0px 0px 20px #7645d8;
   }
+  .introduzione{
+    width: 110%;
+    padding-top:240px;
+    padding-left: 10%;
+    padding-right: 0%;
+    gap: 5%;
+  }
+
+  .immagine-introduzione{
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+  }
+
+  .about-me{
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 0%;
+    gap:5%;
+  }
+
+  .immagine-presentazione{
+    width: 100%;
+    height: 30%;
+    border-radius: 20px;
+
+  }
+
+  .intro{
+    width: 80%;
+  }
+  .descrizione{
+    width: 60%;
+
+  }
+  .immagine{
+    height: 50%;
+  }
+
 }
 
