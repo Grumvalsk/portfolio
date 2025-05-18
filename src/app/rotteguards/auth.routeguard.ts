@@ -22,19 +22,37 @@ export class AuthActivateRouteGuard {
             return true;
         }
     }
+  // Funzione per verificare la validità del token
+checkTokenValidity(exp:string): boolean {
+  if (exp) {
+    const currentTime = new Date().getTime(); // ora corrente
+    const elapsedTime = currentTime - parseInt(exp, 10); // differenza in millisecondi
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-      debugger
-        const token = sessionStorage.getItem('Authorization');
-
-        if (!token || this.isTokenExpired(token)) {
-          sessionStorage.removeItem("Authorization")
-            this.router.navigate(['home-page']);
-            return false;
-        }
-
-        return true;
+    // 1 ora = 3600000 millisecondi
+    if (elapsedTime < 3600000) {
+      return true; // Il token è ancora valido (meno di un'ora)
+    }else{
+      return false;
     }
+  }
+  return false; // Token scaduto o assente
+}
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const token=sessionStorage.getItem("token");
+    const exp=sessionStorage.getItem("exp")
+    if(!token&&!exp){
+      this.router.navigate(['home-page'])
+      return false;
+     } else {
+      if(exp&&this.checkTokenValidity(exp)){
+       this.router.navigate(['area-riservata']);
+       return true
+      }else{
+      this.router.navigate(['home-page'])
+      return false
+      }
+    }
+  }
 }
 
 export const AuthGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {

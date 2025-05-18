@@ -1,7 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
 import { User } from '../user';
 import { Oauth2Service } from '../oauth-2.service';
 
@@ -15,20 +14,30 @@ export class HeaderComponent implements OnInit {
   user: User = new User();
 
   constructor(private rotte: Router, public dialog: MatDialog,private googleService:Oauth2Service,private route: ActivatedRoute) {}
-  ngOnInit(): void {
-    console.log("URL "+this.route.paramMap)
-    this.route.paramMap.subscribe(params => {
+ngOnInit(): void {
+  this.route.fragment.subscribe(fragmentString => {
+    if (fragmentString) {
+      // Qunado es. fragmentString = "state=...&access_token=XYZ&token_type=Bearer&…"
+      const params = new URLSearchParams(fragmentString);
       const access_token = params.get('access_token');
-      if(access_token){
-        const currentTime = new Date().getTime()+""; // ottieni il timestamp corrente
-        sessionStorage.setItem("token",access_token)
-        sessionStorage.setItem('exp',currentTime)
-      console.log('Parametro di rotta id:', access_token);
+
+      if (access_token) {
+        const currentTime = new Date().getTime() + ""; // timestamp corrente in millisecondi
+        sessionStorage.setItem("token", access_token);
+        sessionStorage.setItem("exp", currentTime);
+        console.log('Access token dal fragment:', access_token);
+      } else {
+        console.log('Nessun access_token nel fragment.');
       }
-    });  }
+    } else {
+      console.log('Fragment vuoto (nessun # presente nell’URL).');
+    }
+  });
+}
+
+
 
   areaRiservata() {
-    debugger
     const token=sessionStorage.getItem("token");
     const exp=sessionStorage.getItem("exp")
     if(!token&&!exp){
