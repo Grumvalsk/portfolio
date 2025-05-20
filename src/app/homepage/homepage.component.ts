@@ -107,7 +107,8 @@ export class HomepageComponent implements OnInit {
 
   getMoreInfo(esperienza: Esperienza): void {
     this.dialog.open(DescrizioneEsperienzaComponent, {
-      data: esperienza
+      data: esperienza,
+       panelClass: 'dialog-custom'
     });
   }
 
